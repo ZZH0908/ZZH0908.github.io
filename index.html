@@ -359,12 +359,17 @@ height:50vh;
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2018/11/12/Demo/">
+        <a class="abstract-title" href="/2018/11/12/YOLO_V2/">
             
-                <span>Demo</span>
+                <span>YOLO V2</span>
         </a>
         <div class="abstract-content">
-            DLYOLO
+            
+概述YOLO V2是YOLO的改进版本，当时在PASCAL vov和COCO数据集上都取得了最好的效果。因为之前YOLO非常不擅长小目标检测导致最终结果不是最好的，而本文采用了多尺度的训练方法，使YOLO V2能够具有尺度不变性，很好的平衡了模型准确率和速度因素。在VOC 2007上的数据结果：
+
+76.8mAP         67FPS78.6mAP          40FPS检测结果超过了当时的Faster RCNN和SSD，而且模型速度仍然是非常快的
+
+V2使用了联合训练的方法，使得模型可以同时在COCO检测数据集和ImageNet分类数据集上进行训练，通过这个方法使得模型可...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -375,9 +380,9 @@ height:50vh;
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="导航">导航</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="分享">分享</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="目标检测">目标检测</a>
     
 </div>
             
@@ -622,12 +627,12 @@ More...
     
     
     
-    <div class="archive-year"> Invalid date </div>
+    <div class="archive-year"> 2018 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2018/11/04/hello-world/">Hello World</a>
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href="/2018/11/12/YOLO_V2/">YOLO V2</a>
         </li>
     
     
@@ -636,12 +641,12 @@ More...
     
         </ul>
     
-    <div class="archive-year"> 2018 </div>
+    <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/12</span><a class="archive-post-title" href="/2018/11/12/Demo/">Demo</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2018/11/04/hello-world/">Hello World</a>
         </li>
     
     </ul></div>
@@ -652,6 +657,8 @@ More...
         <span class="sidebar-tag-name" data-tags="导航"><span class="iconfont-archer">&#xe606;</span>导航</span>
     
         <span class="sidebar-tag-name" data-tags="分享"><span class="iconfont-archer">&#xe606;</span>分享</span>
+    
+        <span class="sidebar-tag-name" data-tags="目标检测"><span class="iconfont-archer">&#xe606;</span>目标检测</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
