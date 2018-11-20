@@ -359,14 +359,45 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2018/11/20/R-CNN/">
+            
+                <span>R-CNN</span>
+        </a>
+        <div class="abstract-content">
+            
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/20</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="目标检测">目标检测</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="论文">论文</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2018/11/16/YOLO/">
             
                 <span>YOLO</span>
         </a>
         <div class="abstract-content">
-            &#160; &#160; &#160; &#160;YOLO是一种真正端到端训练和预测的网络模型，它将目标探测作为一个回归问题来处理，直接从整张图片中预测bounding boxes和物体类别概率。YOLO最大的优势是在速度极快并且还实现了较高的检测性能，在显卡上运行可以达到45的帧率，fast版本可以达到155的帧率，与RCNN相比定位错误比较明显也是YOLO的主要劣势，但背景误检率比RCNN要低
+            YOLO是一种真正端到端训练和预测的网络模型，它将目标探测作为一个回归问题来处理，直接从整张图片中预测bounding boxes和物体类别概率。YOLO最大的优势是在速度极快并且还实现了较高的检测性能，在显卡上运行可以达到45的帧率，fast版本可以达到155的帧率，与RCNN相比定位错误比较明显也是YOLO的主要劣势，但背景误检率比RCNN要低.
 
-YOLO的优缺点：优点：1、快、很快，不信可以去看视频.2、YOLO是基于全图的目标检测，考虑了图像信息的上下文内容，而RCNN等则是先提取出候选区域再识别的(仅对特定区域进行处理)，这...
+YOLO的优缺点：优点：1、快、很快，不信可以去看视频.2、YOLO是基于全图的目标检测，考虑了图像信息的上下文内容，而RCNN等则是先提取出候选区域再识别的(仅对特定区域进行处理)，这也是YOLO的背景误检率较低的原因.3、泛化性很高，...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -374,6 +405,14 @@ YOLO的优缺点：优点：1、快、很快，不信可以去看视频.2、YOLO
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/16</span>
             </div>
             <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="目标检测">目标检测</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="论文">论文</a>
+    
+</div>
             
         </div>
     </article>
@@ -407,7 +446,7 @@ V2使用了联合训练的方法，使得模型可以同时在COCO检测数据�
     
         <a class="post-tag" href="javascript:void(0);" data-tags="目标检测">目标检测</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="分享">分享</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="论文">论文</a>
     
 </div>
             
@@ -648,9 +687,18 @@ More...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 3
+        Total : 4
         </div>
         <!-- search  -->
         
@@ -680,6 +728,11 @@ More...
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href="/2018/11/20/R-CNN/">R-CNN</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/16</span><a class="archive-post-title" href="/2018/11/16/YOLO/">YOLO</a>
         </li>
     
@@ -696,6 +749,8 @@ More...
         <span class="sidebar-tag-name" data-tags="目标检测"><span class="iconfont-archer">&#xe606;</span>目标检测</span>
     
         <span class="sidebar-tag-name" data-tags="分享"><span class="iconfont-archer">&#xe606;</span>分享</span>
+    
+        <span class="sidebar-tag-name" data-tags="论文"><span class="iconfont-archer">&#xe606;</span>论文</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -765,23 +820,7 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-</body>
+    </body>
 </html>
 
 
