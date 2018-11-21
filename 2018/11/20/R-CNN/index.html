@@ -403,7 +403,9 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>&#160; &#160; &#160; &#160;以往的目标检测算法不仅效果不好而且原理复杂，RCNN是一种简单并且可扩展的算法，在VOC2012数据集上mean average precision (mAP)提高了30%。RCNN主要使用了两个方法：(1) 使用CNN代替传统的特征提取方法来对候选区进行定位和分割 (2) 对于目标检测任务来说数据量是稀少的，所以采用了预训练CNN的策略。</p>
+        <blockquote>
+<p>以往的目标检测算法不仅效果不好而且原理复杂，RCNN是一种简单并且可扩展的算法，在VOC2012数据集上mean average precision (mAP)提高了30%。RCNN主要使用了两个方法：(1) 使用CNN代替传统的特征提取方法来对候选区进行定位和分割 (2) 对于目标检测任务来说数据量是稀少的，所以采用了预训练CNN的策略。</p>
+</blockquote>
 <hr>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>&#160; &#160; &#160; &#160;特征问题，最初是利用SIFT和HOG并利用复杂的ensemble系统&#160;    的方法，后来由于基于生物上的视觉处理过程，由SIFT引入CNN，以及近些年CNN以成&#160; 为主流算法  （所以我得找个时间把上面得传统特征提取算法原理过一遍~）。由于近些年&#160; CNN在图像分类任务上  表现优异，本文作者就试图把图像分类任务扩展到目标探测上&#160; 来，实验表明利用CNN得优势相比传  统算法，在目标探测算法上取得了更好得效果。定&#160; 位问题和图像分类是不同的，其中，定位问题的   一种解决办法是被视为回归问题，然&#160; 而当时！这种方法取得效果并不好，另一种方法是利用滑窗的  思想；相反，RCNN原理是&#160; 对候选区进行识别。算法流程如下：<br><img src="https://img-blog.csdn.net/20181013225816655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%"><br>(1) 以整张图像作为输入<br>(2) 图去大约2000个候选区域<br>(3) 对每个候选区域利用CNN网络进行特征提取<br>(4) 利用特定类的线性SVM分类器对特征进行分类<br>&#160; &#160; &#160; &#160;需要注意的是，因为CNN需要相同维度的输入，所以要对候选区域进行reshape，但这样以来就会使目标对象变得扭曲进而丢失了其真实状态，对算法识别及泛化性方面有影响。在数据量稀少的情况下，为了防止模型过拟合会采用预训练的策略，目的是获得一个良好的初始化参数，预训练分为无监督和有监督，RCNN使用的是后者。</p>
 <hr>
@@ -436,13 +438,18 @@ height:50vh;
             <p>原文作者：<a href="https://zzh0908.github.io">zzh</a>
             </p><p>原文链接：<a href="https://zzh0908.github.io/2018/11/20/R-CNN/">https://zzh0908.github.io/2018/11/20/R-CNN/</a>
             </p><p>发表日期：<a href="https://zzh0908.github.io/2018/11/20/R-CNN/">November 20th 2018, 5:24:52 pm</a>
-            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/20/R-CNN/">November 21st 2018, 10:00:06 am</a>
+            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/20/R-CNN/">November 21st 2018, 10:49:13 am</a>
             </p><p>版权声明：</p>
         </div>
     
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2018/11/21/pytorch入门文档/" title="pytorch入门文档">
+                    <div class="nextTitle">pytorch入门文档</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -577,7 +584,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-detection-with-R-CNN"><span class="toc-number">3.</span> <span class="toc-text">Object detection with R-CNN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Module-design"><span class="toc-number">3.1.</span> <span class="toc-text">Module design</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Testtime-detection"><span class="toc-number">3.2.</span> <span class="toc-text">Testtime detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Training"><span class="toc-number">3.3.</span> <span class="toc-text">Training</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消融研究-Ablation-studies"><span class="toc-number">4.</span> <span class="toc-text">消融研究(Ablation studies)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bounding-box-regression"><span class="toc-number">5.</span> <span class="toc-text">Bounding box regression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Appendix"><span class="toc-number">6.</span> <span class="toc-text">Appendix</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-proposal-transformations"><span class="toc-number">6.1.</span> <span class="toc-text">Object proposal transformations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Positive-vs-negative-examples-and-softmax"><span class="toc-number">6.2.</span> <span class="toc-text">Positive vs. negative examples and softmax</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bounding-box-regression-1"><span class="toc-number">6.3.</span> <span class="toc-text">Bounding-box regression</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">7.</span> <span class="toc-text">参考文献</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-detection-with-R-CNN"><span class="toc-number">2.</span> <span class="toc-text">Object detection with R-CNN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Module-design"><span class="toc-number">2.1.</span> <span class="toc-text">Module design</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Testtime-detection"><span class="toc-number">2.2.</span> <span class="toc-text">Testtime detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Training"><span class="toc-number">2.3.</span> <span class="toc-text">Training</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消融研究-Ablation-studies"><span class="toc-number">3.</span> <span class="toc-text">消融研究(Ablation studies)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bounding-box-regression"><span class="toc-number">4.</span> <span class="toc-text">Bounding box regression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Appendix"><span class="toc-number">5.</span> <span class="toc-text">Appendix</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-proposal-transformations"><span class="toc-number">5.1.</span> <span class="toc-text">Object proposal transformations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Positive-vs-negative-examples-and-softmax"><span class="toc-number">5.2.</span> <span class="toc-text">Positive vs. negative examples and softmax</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bounding-box-regression-1"><span class="toc-number">5.3.</span> <span class="toc-text">Bounding-box regression</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">6.</span> <span class="toc-text">参考文献</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -626,9 +633,22 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 4
+        Total : 5
         </div>
         <!-- search  -->
         
@@ -638,6 +658,25 @@ top:50vh;
     
     
     
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/21</span><a class="archive-post-title" href="/2018/11/21/pytorch入门文档/">pytorch入门文档</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/20</span><a class="archive-post-title" href="/2018/11/20/R-CNN/">R-CNN</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
@@ -658,11 +697,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/20</span><a class="archive-post-title" href="/2018/11/20/R-CNN/">R-CNN</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/16</span><a class="archive-post-title" href="/2018/11/16/YOLO/">YOLO</a>
         </li>
     
@@ -679,6 +713,8 @@ top:50vh;
         <span class="sidebar-tag-name" data-tags="目标检测"><span class="iconfont-archer">&#xe606;</span>目标检测</span>
     
         <span class="sidebar-tag-name" data-tags="论文"><span class="iconfont-archer">&#xe606;</span>论文</span>
+    
+        <span class="sidebar-tag-name" data-tags="pytorch"><span class="iconfont-archer">&#xe606;</span>pytorch</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -714,6 +750,8 @@ jsonContent:
     <div class="sidebar-categories-name">
     
         <span class="sidebar-category-name" data-categories="深度学习"><span class="iconfont-archer">&#xe60a;</span>深度学习</span>
+    
+        <span class="sidebar-category-name" data-categories="pytorch"><span class="iconfont-archer">&#xe60a;</span>pytorch</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
