@@ -422,7 +422,7 @@ height:50vh;
             <p>原文作者：<a href="https://zzh0908.github.io">zzh</a>
             </p><p>原文链接：<a href="https://zzh0908.github.io/2018/11/12/YOLO_V2/">https://zzh0908.github.io/2018/11/12/YOLO_V2/</a>
             </p><p>发表日期：<a href="https://zzh0908.github.io/2018/11/12/YOLO_V2/">November 12th 2018, 3:15:56 pm</a>
-            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/12/YOLO_V2/">November 20th 2018, 5:33:03 pm</a>
+            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/12/YOLO_V2/">November 21st 2018, 10:02:13 am</a>
             </p><p>版权声明：</p>
         </div>
     
@@ -457,6 +457,22 @@ height:50vh;
 
     
     
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "2bkESrIhCMllXK8zFa7FIPJf-gzGzoHsz",
+        appKey: "3xXcRtuhKEfQyp2opnkOE9Ae",
+        placeholder: "我想变有钱...........",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
 
     <!-- 评论 -->
 </main>
@@ -653,8 +669,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="目标检测"><span class="iconfont-archer">&#xe606;</span>目标检测</span>
     
-        <span class="sidebar-tag-name" data-tags="分享"><span class="iconfont-archer">&#xe606;</span>分享</span>
-    
         <span class="sidebar-tag-name" data-tags="论文"><span class="iconfont-archer">&#xe606;</span>论文</span>
     
     </div>
@@ -727,7 +741,23 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+</body>
 </html>
 
 

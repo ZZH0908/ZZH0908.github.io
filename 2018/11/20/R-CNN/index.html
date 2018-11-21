@@ -274,7 +274,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">0</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2.2k</span>阅读时长: <span class="post-count reading-time">8 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -403,7 +403,32 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>&#160; &#160; &#160; &#160;以往的目标检测算法不仅效果不好而且原理复杂，RCNN是一种简单并且可扩展的算法，在VOC2012数据集上mean average precision (mAP)提高了30%。RCNN主要使用了两个方法：(1) 使用CNN代替传统的特征提取方法来对候选区进行定位和分割 (2) 对于目标检测任务来说数据量是稀少的，所以采用了预训练CNN的策略。</p>
+<hr>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>&#160; &#160; &#160; &#160;特征问题，最初是利用SIFT和HOG并利用复杂的ensemble系统&#160;    的方法，后来由于基于生物上的视觉处理过程，由SIFT引入CNN，以及近些年CNN以成&#160; 为主流算法  （所以我得找个时间把上面得传统特征提取算法原理过一遍~）。由于近些年&#160; CNN在图像分类任务上  表现优异，本文作者就试图把图像分类任务扩展到目标探测上&#160; 来，实验表明利用CNN得优势相比传  统算法，在目标探测算法上取得了更好得效果。定&#160; 位问题和图像分类是不同的，其中，定位问题的   一种解决办法是被视为回归问题，然&#160; 而当时！这种方法取得效果并不好，另一种方法是利用滑窗的  思想；相反，RCNN原理是&#160; 对候选区进行识别。算法流程如下：<br><img src="https://img-blog.csdn.net/20181013225816655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%"><br>(1) 以整张图像作为输入<br>(2) 图去大约2000个候选区域<br>(3) 对每个候选区域利用CNN网络进行特征提取<br>(4) 利用特定类的线性SVM分类器对特征进行分类<br>&#160; &#160; &#160; &#160;需要注意的是，因为CNN需要相同维度的输入，所以要对候选区域进行reshape，但这样以来就会使目标对象变得扭曲进而丢失了其真实状态，对算法识别及泛化性方面有影响。在数据量稀少的情况下，为了防止模型过拟合会采用预训练的策略，目的是获得一个良好的初始化参数，预训练分为无监督和有监督，RCNN使用的是后者。</p>
+<hr>
+<h2 id="Object-detection-with-R-CNN"><a href="#Object-detection-with-R-CNN" class="headerlink" title="Object detection with R-CNN"></a>Object detection with R-CNN</h2><h3 id="Module-design"><a href="#Module-design" class="headerlink" title="Module design"></a>Module design</h3><p>&#160; &#160; &#160; &#160;Region proposals提取候选区的方法有很多：objectness, selective search, category-independent object proposals, constrained parametric min-cuts (CPMC)等，RCNN采用的selective search，作者解释说是为了更好的和以往的目标探测算法进行比较。Feature extraction对每个候选区域提取出4096维的特征向量，而输入则是227×227大小的RGB图像；在reshape之前，为了获得更多的区域上下文信息，对原始bbox进行扩充若干个像素。</p>
+<h3 id="Testtime-detection"><a href="#Testtime-detection" class="headerlink" title="Testtime detection"></a>Testtime detection</h3><p>&#160; &#160; &#160; &#160;测试阶段的重点是，在经过SVM之后，对所有的区域，针对独立的每个类应用greedy non-maximum suppression，NMS原理：<br><img src="https://img-blog.csdn.net/20181015173820730?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%">                           </p>
+<h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><p>&#160; &#160; &#160; &#160;训练迭代过程中，batchsize为128(其中正样本为32，负样本为96)，为什么要有正负例呢？因为使用的是二分类器；正负样本的选取是依据IOU的，小于某个阈值则为负样本，选择不同的阈值对最终结果有着不同的影响。训练过程采用了hard negative- mining方法，因为样本中正样本所占比例较小，这样训练出来的分类效果不好，会出现很多False Positive(把负样本预测为正)的情况，hard-negative就把这些扔进网络再训练，从而加强分类器判别假阳性的能力。</p>
+<hr>
+<h2 id="消融研究-Ablation-studies"><a href="#消融研究-Ablation-studies" class="headerlink" title="消融研究(Ablation studies)"></a>消融研究(Ablation studies)</h2><p>ablation study就是为了研究模型中所提出的一些结构是否有效而设计的实验，也就是（控制变量法）<br><img src="https://img-blog.csdn.net/20181015215351217?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%">   </p>
+<h2 id="Bounding-box-regression"><a href="#Bounding-box-regression" class="headerlink" title="Bounding box regression"></a>Bounding box regression</h2><p>基于pool5特征图利用线性回归模型对候选区域的box进行修正，实验表明此方法提高了3~4个百分点~</p>
+<hr>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><h3 id="Object-proposal-transformations"><a href="#Object-proposal-transformations" class="headerlink" title="Object proposal transformations"></a>Object proposal transformations</h3><p>A补充材料中介绍的是，作者尝试了两种不同reshape图像的方式，并分析了对最终结果的影响；第一种是各向同性的(isotropically)，第二种是各向异性的(anisotropically)，如图所示：<br><img src="https://img-blog.csdn.net/20181016090113208?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%"><br>&#160; &#160; &#160; &#160;如图所示A代表这原始box边框，B属于各向同性的图像变换，C是各向异性的一个变体也属于这个范畴，D是各向异性的图像变换。所谓各项同性分为BC两种(“tightest square with context”和“tightest square without context”) ，根据英文就可以看出其意思，直白地说就是前者是先扩充图像上下文信息再reshap，后者是忽略周围地上下文信息使用灰色进行代替进而扩充成正方形；所谓各向异性就是直接对原图A进行reshape，从结果上看D图严重偏离了物体该有地自然形态，自然模型也就学习不到真实的东西。<br>&#160; &#160; &#160; &#160;对于每种变换，作者都进行了额外的上下文信息扩充，如图所示第一行的扩充像素为p=0，最后一行的扩充像素信息为p=16，p=16时会使得最终实验结果提升3~5个百分点。</p>
+<hr>
+<h3 id="Positive-vs-negative-examples-and-softmax"><a href="#Positive-vs-negative-examples-and-softmax" class="headerlink" title="Positive vs. negative examples and softmax"></a>Positive vs. negative examples and softmax</h3><blockquote>
+<p>为什么正负样本的定义对于softmax和svm是不同的呢？</p>
+</blockquote>
+<p>&#160; &#160; &#160; &#160;1、对于softmax正样本是IOU至少是0.5，其余的都是负样本；2、而SVM只使用真实原始box作为正样本，IOU小于0.3的才是负样本。作者解释，开始训练SVM时是基于Imagenet预训练模型的CNN特征的(那时候没有考虑使用微调)，比较下来2配置是很好的选择效果最佳；当开始使用微调时(使用softmax对候选区进行微调以适应样本)，使用2的配置发现效果很差。分析：怎么定义不是最重要的，重要的是微调需要一个大的样本来防止过拟合，而使用配置1正样本被扩展了30倍。这又产生了疑问，为什么要在微调之后再训练一个svm呢，不能直接用微调后的softmax输出吗？作者进行了实验，直接使用softmax会导致大约2歌百分点的map下降，原因可能是：1、微调的时候也就是配置1的样本定义方式在定位上是不准确的，因为IOU是0.5就可以算正样本了，这不科学；2、负样的采样方式是随机采样而不是使用hard negatives<br>&#160; &#160; &#160; &#160;总结，不使用SVM也可以获得接近但还有一点小差距的效果，如果有一些方法可以使微调阶段取得更好的效果，就可以放弃SVM阶段，这会简化和加快算法训练还不会损失算法性能。</p>
+<hr>
+<h3 id="Bounding-box-regression-1"><a href="#Bounding-box-regression-1" class="headerlink" title="Bounding-box regression"></a>Bounding-box regression</h3><p>&#160; &#160; &#160; &#160;假设有一组训练样本对：$\left \{ P^{i},G^{i} \right \}$，其中$P^{i}=P_{x}^{i},P_{y}^{i},P_{w}^{i},P_{z}^{i}$表示候选区域的中心坐标以及高度宽度，而$G^{i}=G_{x}^{i},G_{y}^{i},G_{w}^{i},G_{z}^{i}$则代表真实box边界框，我们的目的就是利用回归模型对候选区域box进行调整使其更复合真实bbox G。如图所示，其中$\hat{G}$是我们预测的新的边界框，我们的学习目标就是新的边界框和真实框尽可能地接近：<br><img src="https://img-blog.csdn.net/20181016123235431?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%"><br>&#160; &#160; &#160; &#160;对P框中心点进行位移，对长宽进行缩放，公式如下：</p>
+<script type="math/tex; mode=display">\hat{G}_{x}=P_{w}d_{x}(P)+P_{x}</script><script type="math/tex; mode=display">\hat{G}_{y}=P_{h}d_{y}(P)+P_{y}</script><script type="math/tex; mode=display">\hat{G}_{w}=P_{w}exp(d_{w}(P))</script><script type="math/tex; mode=display">\hat{G}_{h}=P_{h}exp(d_{h}(P))</script><p>&#160; &#160; &#160; &#160;其中d_(P)是作为一个线性函数，又是基于pool5特征的，则有：<script type="math/tex">d_{x,y,w,h}(P)=w_{x,y,w,h}^{T}\varnothing _{5}(P)</script>，我们通过优化一个最小二乘loss函数来得到最优参数W:<br><img src="https://img-blog.csdn.net/20181016131137279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:70%"><br>&#160; &#160; &#160; &#160;其中，t_表示原始边框P和真实边框G之间的映射，从上式可以看出，我们其实学习的是两种映射的近似，映射公式形式是一样的：</p>
+<script type="math/tex; mode=display">t_{x}=(G_{x}-P_{x})/P_{w}</script><script type="math/tex; mode=display">t_{y}=(G_{y}-P_{y})/P_{h}</script><script type="math/tex; mode=display">t_{w}=log(G_{w}/G_{w})</script><script type="math/tex; mode=display">t_{h}=log(G_{h}/G_{h})</script><p>&#160; &#160; &#160; &#160;作者还提到两个关于回归问题。1是loss函数的正则化参数设置问题；2就是当P相对于真实边界框G较远的时候，回归模型是不起作用的，在P和G  IOU较大时才起作用，原因是我们将映射看作是一个线性的，原因在这篇博客中解释的很好。</p>
+<hr>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
+<li><a href="https://arxiv.org/abs/1311.2524v3" target="_blank" rel="noopener">Rich feature hierarchies for accurate object detection and semantic segmentation</a></li>
+</ul>
+
     </article>
     <!-- license  -->
     
@@ -411,7 +436,7 @@ height:50vh;
             <p>原文作者：<a href="https://zzh0908.github.io">zzh</a>
             </p><p>原文链接：<a href="https://zzh0908.github.io/2018/11/20/R-CNN/">https://zzh0908.github.io/2018/11/20/R-CNN/</a>
             </p><p>发表日期：<a href="https://zzh0908.github.io/2018/11/20/R-CNN/">November 20th 2018, 5:24:52 pm</a>
-            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/20/R-CNN/">November 20th 2018, 5:33:08 pm</a>
+            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/20/R-CNN/">November 21st 2018, 10:00:06 am</a>
             </p><p>版权声明：</p>
         </div>
     
@@ -441,6 +466,22 @@ height:50vh;
 
     
     
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "2bkESrIhCMllXK8zFa7FIPJf-gzGzoHsz",
+        appKey: "3xXcRtuhKEfQyp2opnkOE9Ae",
+        placeholder: "我想变有钱...........",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
 
     <!-- 评论 -->
 </main>
@@ -536,7 +577,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">2.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-detection-with-R-CNN"><span class="toc-number">3.</span> <span class="toc-text">Object detection with R-CNN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Module-design"><span class="toc-number">3.1.</span> <span class="toc-text">Module design</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Testtime-detection"><span class="toc-number">3.2.</span> <span class="toc-text">Testtime detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Training"><span class="toc-number">3.3.</span> <span class="toc-text">Training</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#消融研究-Ablation-studies"><span class="toc-number">4.</span> <span class="toc-text">消融研究(Ablation studies)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bounding-box-regression"><span class="toc-number">5.</span> <span class="toc-text">Bounding box regression</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Appendix"><span class="toc-number">6.</span> <span class="toc-text">Appendix</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-proposal-transformations"><span class="toc-number">6.1.</span> <span class="toc-text">Object proposal transformations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Positive-vs-negative-examples-and-softmax"><span class="toc-number">6.2.</span> <span class="toc-text">Positive vs. negative examples and softmax</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bounding-box-regression-1"><span class="toc-number">6.3.</span> <span class="toc-text">Bounding-box regression</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">7.</span> <span class="toc-text">参考文献</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -637,8 +678,6 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="目标检测"><span class="iconfont-archer">&#xe606;</span>目标检测</span>
     
-        <span class="sidebar-tag-name" data-tags="分享"><span class="iconfont-archer">&#xe606;</span>分享</span>
-    
         <span class="sidebar-tag-name" data-tags="论文"><span class="iconfont-archer">&#xe606;</span>论文</span>
     
     </div>
@@ -711,7 +750,23 @@ jsonContent:
     
         <script src="/scripts/share.js" async></script>    
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+</body>
 </html>
 
 

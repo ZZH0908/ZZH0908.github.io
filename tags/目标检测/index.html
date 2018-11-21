@@ -351,7 +351,7 @@
                 <span>R-CNN</span>
         </a>
         <div class="abstract-content">
-            
+            Abstract&#160; &#160; &#160; &#160;以往的目标检测算法不仅效果不好而且原理复杂，RCNN是一种简单并且可扩展的算法，在VOC2012数据集上mean avera...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -382,9 +382,8 @@
                 <span>YOLO</span>
         </a>
         <div class="abstract-content">
-            YOLO是一种真正端到端训练和预测的网络模型，它将目标探测作为一个回归问题来处理，直接从整张图片中预测bounding boxes和物体类别概率。YOLO最大的优势是在速度极快并且还实现了较高的检测性能，在显卡上运行可以达到45的帧率，fast版本可以达到155的帧率，与RCNN相比定位错误比较明显也是YOLO的主要劣势，但背景误检率比RCNN要低.
-
-YOLO的优缺点：优点：1、快、很快，不信可以去看视频.2、YOLO是基于全图的目标检测，考虑了图像信息的上下文内容，而RCNN等则是先提取出候选区域再识别的(仅对特定区域进行处理)，这也是YOLO的背景误检率较低的原因.3、泛化性很高，...
+            
+YOLO是一种真正端到端训练和预测的网络模型，它将目标探测作为一个回归问题来处理，直接从整张图片中预测bounding boxes和物体类别概率。YOLO最大的优势是在速度极快并且还实现了较高...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -416,11 +415,7 @@ YOLO的优缺点：优点：1、快、很快，不信可以去看视频.2、YOLO
         </a>
         <div class="abstract-content">
             
-概述YOLO V2是YOLO的改进版本，当时在PASCAL vov和COCO数据集上都取得了最好的效果。因为之前YOLO非常不擅长小目标检测导致最终结果不是最好的，而本文采用了多尺度的训练方法，使YOLO V2能够具有尺度不变性，很好的平衡了模型准确率和速度因素。在VOC 2007上的数据结果：
-
-76.8mAP         67FPS78.6mAP          40FPS检测结果超过了当时的Faster RCNN和SSD，而且模型速度仍然是非常快的
-
-V2使用了联合训练的方法，使得模型可以同时在COCO检测数据集和ImageNet分类数据集上进行训练，通过这个方法使得模型可...
+概述YOLO V2是YOLO的改进版本，当时在PASCAL vov和COCO数据集上都取得了最好的效果。因为之前YOLO非常不擅长小目标检测导致最终结果不是最好的，而本文采用了多尺度的训练方法...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -618,8 +613,6 @@ V2使用了联合训练的方法，使得模型可以同时在COCO检测数据�
     
         <span class="sidebar-tag-name" data-tags="目标检测"><span class="iconfont-archer">&#xe606;</span>目标检测</span>
     
-        <span class="sidebar-tag-name" data-tags="分享"><span class="iconfont-archer">&#xe606;</span>分享</span>
-    
         <span class="sidebar-tag-name" data-tags="论文"><span class="iconfont-archer">&#xe606;</span>论文</span>
     
     </div>
@@ -690,7 +683,23 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+</body>
 </html>
 
 
