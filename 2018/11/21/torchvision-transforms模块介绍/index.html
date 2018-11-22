@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">597</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -420,7 +420,7 @@ height:50vh;
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><blockquote>
 <p>可以看到实际上这些图像变换功能的函数都在functional模块中，而Transform对象也大致都有<strong>init</strong>、<br><strong>call</strong>、<strong>repr</strong>这几个’魔法’函数组成</p>
 </blockquote>
-<p>下面就只进行简单介绍<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">ColorJitter</span><span class="params">(brightness=<span class="number">0</span>, contrast=<span class="number">0</span>, saturation=<span class="number">0</span>, hue=<span class="number">0</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>下面就只进行简单介绍、认识一下…<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">ColorJitter</span><span class="params">(brightness=<span class="number">0</span>, contrast=<span class="number">0</span>, saturation=<span class="number">0</span>, hue=<span class="number">0</span>)</span></span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>随机亮度、对比度、饱和度调整，注意是随机采样的<br>参数：</p>
 <ul>
@@ -430,6 +430,54 @@ height:50vh;
 <li>hue (float) – How much to jitter hue. hue_factor is chosen uniformly from [-hue, hue]<br>Should be &gt;=0 and &lt;= 0.5.</li>
 </ul>
 </blockquote>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">FiveCrop</span><span class="params">(size)</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对给定PIL图像进行四角裁剪和中心裁剪<br>参数：size值和上面中心裁剪同理<br>注意：这个操作会造成输入和标签的不匹配，因为你给定n个图像返回5×n个结果~官方也给出了解决办法<br>在TSN算法(行为识别)看到过这种用法，第一次见~~不是很明白这种操作</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>transform = Compose([</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>   FiveCrop(size), <span class="comment"># this is a list of PIL Images</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>   Lambda(<span class="keyword">lambda</span> crops: torch.stack([ToTensor()(crop) <span class="keyword">for</span> crop <span class="keyword">in</span> crops])) <span class="comment"># returns a 4D tensor</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment">#In your test loop you can do the following:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>input, target = batch <span class="comment"># input is a 5d tensor, target is 2d</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bs, ncrops, c, h, w = input.size()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result = model(input.view(<span class="number">-1</span>, c, h, w)) <span class="comment"># 传入的时候融合batch和裁剪维度</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result_avg = result.view(bs, ncrops, <span class="number">-1</span>).mean(<span class="number">1</span>) <span class="comment"># 对结果，对所有样本的ncrops取平均，所以由此看来，尽管是返回五倍的数据，但对最后的结果是汇总的</span></span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">Grayscale</span><span class="params">(num_output_channels=<span class="number">1</span>)</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>转换图像为灰度图像<br>参数：1或3<br>返回：灰度图像，当为1时，返回一个单通道图像；为3时，返回通道数为3的图像(r == g == b)<br>返回图像类型是PIL</p>
+</blockquote>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">RandomCrop</span><span class="params">(size, padding=None, pad_if_needed=False, fill=<span class="number">0</span>, padding_mode=<span class="string">'constant'</span>)</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>随机裁剪<br>参数：</p>
+<ul>
+<li>size：输出尺寸</li>
+<li>padding：对图像上下作用进行填充，手动填充….</li>
+<li>pad_if_needed：True时，若需要输出比输入尺寸大，则进行自动填充<br>后面两个参数是官方文档写的，但源码没有这两个参数，pytorch版本是一致的，不知道为什么~</li>
+</ul>
+</blockquote>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">RandomRotation</span><span class="params">(degrees, resample=False, expand=False, center=None)</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>随机角度旋转<br>参数：</p>
+<ul>
+<li>degrees：角度范围，(min, max)或者(-degrees, +degrees)</li>
+<li>resample：重采样，({PIL.Image.NEAREST, PIL.Image.BILINEAR, PIL.Image.BICUBIC}, optional)</li>
+<li>expand：为False时，旋转后超出尺寸区域就略去；为True时，则扩展图像尺寸使其完全包含原始图像</li>
+<li>center:旋转中心，默认是图像中心</li>
+</ul>
+</blockquote>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">Normalize</span><span class="params">(mean, std)</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>根据给定的均值和方差对tensor类型图像进行规范化</p>
+</blockquote>
+<h3 id="Conversion-Transforms"><a href="#Conversion-Transforms" class="headerlink" title="Conversion Transforms"></a>Conversion Transforms</h3><blockquote>
+<p>Convert a tensor or an ndarray to PIL Image.<br>class torchvision.transforms.ToPILImage(mode=None)<br>class torchvision.transforms.ToTensor<br>Convert a PIL Image or numpy.ndarray to tensor.</p>
+</blockquote>
+<h3 id="Generic-Transforms"><a href="#Generic-Transforms" class="headerlink" title="Generic Transforms"></a>Generic Transforms</h3><blockquote>
+<p>class torchvision.transforms.Lambda(lambd)<br>将用户自定义的函数作为一个transform，函数中当然也可以使用transform操作，为用户提供一定的灵活度<br>参数：lambd函数</p>
+</blockquote>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">transfer = T.Compose([</span><br><span class="line">    T.RandomRotation(<span class="number">50</span>),</span><br><span class="line">    T.RandomCrop(size=<span class="number">400</span>, padding=<span class="number">0</span>, pad_if_needed=<span class="keyword">True</span>),</span><br><span class="line">    T.RandomGrayscale(p=<span class="number">0.6</span>),</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line">image = Image.open(<span class="string">"E:/temp/czym.jpg"</span>)</span><br><span class="line"><span class="comment"># image = cv2.imread('E:/temp/200.jpg')</span></span><br><span class="line"><span class="comment"># image = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))</span></span><br><span class="line">image_transfered = transfer(image)</span><br><span class="line">image_transfered.show()</span><br></pre></td></tr></table></figure>
+<p>原始图像：<br><img src="https://i.imgur.com/9n14yfU.jpg" alt="原始图像"><br>转换后图像：<br><img src="https://i.imgur.com/YecvFTP.png" alt="转换后的图像"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://pytorch.org/docs/stable/torchvision/transforms.html" target="_blank" rel="noopener">https://pytorch.org/docs/stable/torchvision/transforms.html</a></li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -438,7 +486,7 @@ height:50vh;
             <p>原文作者：<a href="https://zzh0908.github.io">zzh</a>
             </p><p>原文链接：<a href="https://zzh0908.github.io/2018/11/21/torchvision-transforms模块介绍/">https://zzh0908.github.io/2018/11/21/torchvision-transforms模块介绍/</a>
             </p><p>发表日期：<a href="https://zzh0908.github.io/2018/11/21/torchvision-transforms模块介绍/">November 21st 2018, 7:42:51 pm</a>
-            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/21/torchvision-transforms模块介绍/">November 22nd 2018, 12:14:22 pm</a>
+            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/21/torchvision-transforms模块介绍/">November 22nd 2018, 4:14:11 pm</a>
             </p><p>版权声明：</p>
         </div>
     
@@ -579,7 +627,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常规的图像变换操作"><span class="toc-number">1.</span> <span class="toc-text">常规的图像变换操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Compose"><span class="toc-number">1.1.</span> <span class="toc-text">Compose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CenterCrop中心裁剪"><span class="toc-number">1.2.</span> <span class="toc-text">CenterCrop中心裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">1.3.</span> <span class="toc-text">其他</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常规的图像变换操作"><span class="toc-number">1.</span> <span class="toc-text">常规的图像变换操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Compose"><span class="toc-number">1.1.</span> <span class="toc-text">Compose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CenterCrop中心裁剪"><span class="toc-number">1.2.</span> <span class="toc-text">CenterCrop中心裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">1.3.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conversion-Transforms"><span class="toc-number">1.4.</span> <span class="toc-text">Conversion Transforms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generic-Transforms"><span class="toc-number">1.5.</span> <span class="toc-text">Generic Transforms</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举例"><span class="toc-number">2.</span> <span class="toc-text">举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -592,12 +640,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -671,6 +713,20 @@ top:50vh;
     
     
     
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2018/11/04/hello-world/">Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
     
@@ -697,20 +753,6 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/12</span><a class="archive-post-title" href="/2018/11/12/YOLO_V2/">YOLO V2</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2018/11/04/hello-world/">Hello World</a>
         </li>
     
     </ul></div>
