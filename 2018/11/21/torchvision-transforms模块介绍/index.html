@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Zzh</title>
+    <title>torchvision.transforms模块介绍 · Zzh</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Zzh</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">torchvision.transforms模块介绍</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Zzh</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            torchvision.transforms模块介绍
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="pytorch">pytorch</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">597</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/11/21</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,74 +399,93 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/21/torchvision-transforms模块介绍/">
-            
-                <span>torchvision.transforms模块介绍</span>
-        </a>
-        <div class="abstract-content">
-            
-transforms是torchvision中常规的图像变换模块，训练模型时基本上都会用到这些操作来进行数据增强~模块学习还是尽量去看官方文档，但文档有些简略，这时候就要看源码了
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>transforms是torchvision中常规的图像变换模块，训练模型时基本上都会用到这些操作来进行数据增强~<br>模块学习还是尽量去看官方文档，但文档有些简略，这时候就要看源码了</p>
+</blockquote>
+<h2 id="常规的图像变换操作"><a href="#常规的图像变换操作" class="headerlink" title="常规的图像变换操作"></a>常规的图像变换操作</h2><h3 id="Compose"><a href="#Compose" class="headerlink" title="Compose"></a>Compose</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">Compose</span><span class="params">(transforms)</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参数：包含Transform对象的列表<br>官方文档没说能返回什么…..翻开源码</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Compose</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""Composes several transforms together.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        transforms (list of ``Transform`` objects): list of transforms to compose.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Example:</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; transforms.Compose([</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt;     transforms.CenterCrop(10),</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt;     transforms.ToTensor(),</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; ])</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, transforms)</span>:</span></span><br><span class="line">        self.transforms = transforms</span><br><span class="line">	<span class="comment"># 返回进行所有变换后的图像</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, img)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> self.transforms:</span><br><span class="line">            img = t(img)</span><br><span class="line">        <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        format_string = self.__class__.__name__ + <span class="string">'('</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> self.transforms:</span><br><span class="line">            format_string += <span class="string">'\n'</span></span><br><span class="line">            format_string += <span class="string">'    &#123;0&#125;'</span>.format(t)</span><br><span class="line">        format_string += <span class="string">'\n)'</span></span><br><span class="line">        <span class="keyword">return</span> format_string</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>call</strong>可以使得类实例通过传递相应参数像调用函数一样来使用<br><strong>repr</strong>功能是用于显示类实例的属性信息等</p>
+</blockquote>
+<h3 id="CenterCrop中心裁剪"><a href="#CenterCrop中心裁剪" class="headerlink" title="CenterCrop中心裁剪"></a>CenterCrop中心裁剪</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">CenterCrop</span><span class="params">(size)</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参数：size是希望裁剪后输出的尺寸，值为一个序列或者一个int整数，序列比如(200,100)<br>为int值a时，就等价于(a,a)</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> functional <span class="keyword">as</span> F</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CenterCrop</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""Crops the given PIL Image at the center.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        size (sequence or int): Desired output size of the crop. If size is an</span></span><br><span class="line"><span class="string">            int instead of sequence like (h, w), a square crop (size, size) is</span></span><br><span class="line"><span class="string">            made.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, size)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> isinstance(size, numbers.Number):</span><br><span class="line">            self.size = (int(size), int(size))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.size = size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, img)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            img (PIL Image): Image to be cropped.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            PIL Image: Cropped image.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> F.center_crop(img, self.size)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__class__.__name__ + <span class="string">'(size=&#123;0&#125;)'</span>.format(self.size)</span><br><span class="line"><span class="comment"># 实际上这些图像变换功能的函数都在functional模块中</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">center_crop</span><span class="params">(img, output_size)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> isinstance(output_size, numbers.Number):</span><br><span class="line">        output_size = (int(output_size), int(output_size))</span><br><span class="line">    w, h = img.size</span><br><span class="line">    th, tw = output_size</span><br><span class="line">    i = int(round((h - th) / <span class="number">2.</span>))</span><br><span class="line">    j = int(round((w - tw) / <span class="number">2.</span>))</span><br><span class="line">    <span class="keyword">return</span> crop(img, i, j, th, tw)</span><br></pre></td></tr></table></figure>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><blockquote>
+<p>可以看到实际上这些图像变换功能的函数都在functional模块中，而Transform对象也大致都有<strong>init</strong>、<br><strong>call</strong>、<strong>repr</strong>这几个’魔法’函数组成</p>
+</blockquote>
+<p>下面就只进行简单介绍<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">ColorJitter</span><span class="params">(brightness=<span class="number">0</span>, contrast=<span class="number">0</span>, saturation=<span class="number">0</span>, hue=<span class="number">0</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>随机亮度、对比度、饱和度调整，注意是随机采样的<br>参数：</p>
+<ul>
+<li>brightness：均匀随机采样，区间[max(0, 1 - brightness), 1 + brightness].</li>
+<li>contrast：均匀随机采样，区间[max(0, 1 - contrast), 1 + contrast].</li>
+<li>saturation：同理.</li>
+<li>hue (float) – How much to jitter hue. hue_factor is chosen uniformly from [-hue, hue]<br>Should be &gt;=0 and &lt;= 0.5.</li>
+</ul>
+</blockquote>
 
-常规的图像...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="pytorch">pytorch</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2018/11/21/pytorch入门文档/">
-            
-                <span>pytorch入门文档</span>
-        </a>
-        <div class="abstract-content">
-            
-GETTING STARTED对入门文档的翻译和注释，链接在参考文献中
-
-Tensorspytorch深度学习框架中的Tensor和numpy的操作类似，还可以在GPU上进行加速~123456...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://zzh0908.github.io">zzh</a>
+            </p><p>原文链接：<a href="https://zzh0908.github.io/2018/11/21/torchvision-transforms模块介绍/">https://zzh0908.github.io/2018/11/21/torchvision-transforms模块介绍/</a>
+            </p><p>发表日期：<a href="https://zzh0908.github.io/2018/11/21/torchvision-transforms模块介绍/">November 21st 2018, 7:42:51 pm</a>
+            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/21/torchvision-transforms模块介绍/">November 22nd 2018, 12:14:22 pm</a>
+            </p><p>版权声明：</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/21</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="pytorch">pytorch</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2018/11/21/pytorch入门文档/" title="pytorch入门文档">
+                    <div class="prevTitle">pytorch入门文档</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "2bkESrIhCMllXK8zFa7FIPJf-gzGzoHsz",
+        appKey: "3xXcRtuhKEfQyp2opnkOE9Ae",
+        placeholder: "我想变有钱...........",
+        path:window.location.pathname, 
+        avatar:'mm' 
+    });
+    </script>
+
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -483,6 +563,24 @@ Tensorspytorch深度学习框架中的Tensor和numpy的操作类似，还可以�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常规的图像变换操作"><span class="toc-number">1.</span> <span class="toc-text">常规的图像变换操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Compose"><span class="toc-number">1.1.</span> <span class="toc-text">Compose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CenterCrop中心裁剪"><span class="toc-number">1.2.</span> <span class="toc-text">CenterCrop中心裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">1.3.</span> <span class="toc-text">其他</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -695,6 +793,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({

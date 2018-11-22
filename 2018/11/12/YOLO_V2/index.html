@@ -187,7 +187,7 @@
 }( typeof global !== "undefined" ? global : this ) );
 </script>
 
-    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="icon" href="/assets/favicon1.ico">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js" as="script">
@@ -404,16 +404,16 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <p><img src="https://pjreddie.com/media/image/sayit.jpg" alt="yolo"></p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>YOLO V2是YOLO的改进版本，当时在PASCAL vov和COCO数据集上都取得了最好的效果。因为之前YOLO非常不擅长小目标检测导致最终结果不是最好的，而本文采用了多尺度的训练方法，使YOLO V2能够具有尺度不变性，很好的平衡了模型准确率和速度因素。<br>在VOC 2007上的数据结果：</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>YOLO V2是YOLO的改进版本，当时在PASCAL vov和COCO数据集上都取得了最好的效果。因为之前YOLO非常不擅长小目标检测导致最终结果不是最好的，而本文采用了多尺度的训练方法，使YOLO V2能够具有尺度不变性，很好的平衡了模型准确率和速度因素。<br>在VOC 2007上的数据结果：</p>
 <blockquote>
 <p>76.8mAP         67FPS<br>78.6mAP          40FPS<br>检测结果超过了当时的Faster RCNN和SSD，而且模型速度仍然是非常快的</p>
 </blockquote>
 <p>V2使用了联合训练的方法，使得模型可以同时在COCO检测数据集和ImageNet分类数据集上进行训练，通过这个方法使得模型可以检测到数据集中没有标注的检测数据。在ImageNet检测任务中取得了19.7mAP，注意这仅仅是在只训练过其中44个类别的情况下取得的。在COCO中没有的另外156个类别上，取得了16.0mAP。YOLO V2还能够预测9000个不同的目标类别并且保持实时性。</p>
-<h1 id="创新改进"><a href="#创新改进" class="headerlink" title="创新改进"></a>创新改进</h1><p>之前的YOLO有着大量的定位错误，为了提高召回率rell和定位能力同时保持类别预测率，主要使用改进了以下方法：<br>YOLO V2没有采用更大规模的网络，而是简化了网络结构，只是采用了一些网络结构优化技巧，比如：</p>
-<h2 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h2><p>在YOLO基础上加上BN获得了2%mAP的提升，使模型更容易收敛，可以去除正则项、dropout等操作</p>
-<h2 id="High-Resolution-Classifie"><a href="#High-Resolution-Classifie" class="headerlink" title="High Resolution Classifie"></a>High Resolution Classifie</h2><p>YOLO分类微调是在ImageNet预训练模型上进行的，使用的输入分辨率为224×224，然后用448×448的输入进行目标检测任务，模型不能很好的适应。解决办法是，直接利用大的448×448输入进行分类模型的微调，这样就不用再重新适应不同的分辨率了，此改进获得了4%的mAP提升</p>
-<h2 id="Convolutional-With-Anchor-Boxes"><a href="#Convolutional-With-Anchor-Boxes" class="headerlink" title="Convolutional With Anchor Boxes"></a>Convolutional With Anchor Boxes</h2><p>YOLO是直接用基于卷积特征的全连接层来预测bboxes的坐标的，但全连接层会破坏特征图对应原图目标的位置信息，因为要reshape嘛，在可视化文章<a href="https://arxiv.org/abs/1512.04150" target="_blank" rel="noopener">1</a> <a href="https://arxiv.org/abs/1610.02391" target="_blank" rel="noopener">2</a>中也提到全连接层会破坏感兴趣区域的位置。而FRCNN中的RPN网络直接基于卷积特征图利用单位卷积获得输出，很好的保存了位置信息。<br>作者的做法是，移除全连层，移除一个池化层以获得一个大分辨率的特征图。通过调整网络使得输入尺寸为416，目的是为了获得一个奇数的中心点以预测在中心的目标，而不是使用四个临近位置来预测中心物体，这样更精确也更简单化，因为大的目标通常出现在图像中心。类别预测部分是和空间位置是分开的，和YOLO中cell的原理不同的是对每个Anchor都预测类别以及是目标的置信度。cell原理对于每张图片仅仅预测了98个Anchor，而V2可以预测上千个。实验表明，使用Anchor的方法使得mAP微弱下降，但召回率确提升了很多。</p>
-<h2 id="Dimension-Clusters"><a href="#Dimension-Clusters" class="headerlink" title="Dimension Clusters"></a>Dimension Clusters</h2><p>RPN中的anchor boxes的长宽比例是经过先验知识人为设定的，作者采用了一种更好的方法来选取boxes信息，即在训练数据上使用K-均值聚类的方法以自动的得出更优的先验。</p>
+<h2 id="创新改进"><a href="#创新改进" class="headerlink" title="创新改进"></a>创新改进</h2><p>之前的YOLO有着大量的定位错误，为了提高召回率rell和定位能力同时保持类别预测率，主要使用改进了以下方法：YOLO V2没有采用更大规模的网络，而是简化了网络结构，只是采用了一些网络结构优化技巧，比如：</p>
+<h3 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h3><p>在YOLO基础上加上BN获得了2%mAP的提升，使模型更容易收敛，可以去除正则项、dropout等操作</p>
+<h3 id="High-Resolution-Classifie"><a href="#High-Resolution-Classifie" class="headerlink" title="High Resolution Classifie"></a>High Resolution Classifie</h3><p>YOLO分类微调是在ImageNet预训练模型上进行的，使用的输入分辨率为224×224，然后用448×448的输入进行目标检测任务，模型不能很好的适应。解决办法是，直接利用大的448×448输入进行分类模型的微调，这样就不用再重新适应不同的分辨率了，此改进获得了4%的mAP提升</p>
+<h3 id="Convolutional-With-Anchor-Boxes"><a href="#Convolutional-With-Anchor-Boxes" class="headerlink" title="Convolutional With Anchor Boxes"></a>Convolutional With Anchor Boxes</h3><p>YOLO是直接用基于卷积特征的全连接层来预测bboxes的坐标的，但全连接层会破坏特征图对应原图目标的位置信息，因为要reshape嘛，在可视化文章<a href="https://arxiv.org/abs/1512.04150" target="_blank" rel="noopener">1</a> <a href="https://arxiv.org/abs/1610.02391" target="_blank" rel="noopener">2</a>中也提到全连接层会破坏感兴趣区域的位置。而FRCNN中的RPN网络直接基于卷积特征图利用单位卷积获得输出，很好的保存了位置信息。<br>作者的做法是，移除全连层，移除一个池化层以获得一个大分辨率的特征图。通过调整网络使得输入尺寸为416，目的是为了获得一个奇数的中心点以预测在中心的目标，而不是使用四个临近位置来预测中心物体，这样更精确也更简单化，因为大的目标通常出现在图像中心。类别预测部分是和空间位置是分开的，和YOLO中cell的原理不同的是对每个Anchor都预测类别以及是目标的置信度。cell原理对于每张图片仅仅预测了98个Anchor，而V2可以预测上千个。实验表明，使用Anchor的方法使得mAP微弱下降，但召回率确提升了很多。</p>
+<h3 id="Dimension-Clusters"><a href="#Dimension-Clusters" class="headerlink" title="Dimension Clusters"></a>Dimension Clusters</h3><p>RPN中的anchor boxes的长宽比例是经过先验知识人为设定的，作者采用了一种更好的方法来选取boxes信息，即在训练数据上使用K-均值聚类的方法以自动的得出更优的先验。</p>
 
     </article>
     <!-- license  -->
@@ -422,7 +422,7 @@ height:50vh;
             <p>原文作者：<a href="https://zzh0908.github.io">zzh</a>
             </p><p>原文链接：<a href="https://zzh0908.github.io/2018/11/12/YOLO_V2/">https://zzh0908.github.io/2018/11/12/YOLO_V2/</a>
             </p><p>发表日期：<a href="https://zzh0908.github.io/2018/11/12/YOLO_V2/">November 12th 2018, 3:15:56 pm</a>
-            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/12/YOLO_V2/">November 21st 2018, 10:02:13 am</a>
+            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/12/YOLO_V2/">November 21st 2018, 12:39:36 pm</a>
             </p><p>版权声明：</p>
         </div>
     
@@ -568,7 +568,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创新改进"><span class="toc-number">2.</span> <span class="toc-text">创新改进</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Batch-Normalization"><span class="toc-number">2.1.</span> <span class="toc-text">Batch Normalization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#High-Resolution-Classifie"><span class="toc-number">2.2.</span> <span class="toc-text">High Resolution Classifie</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Convolutional-With-Anchor-Boxes"><span class="toc-number">2.3.</span> <span class="toc-text">Convolutional With Anchor Boxes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dimension-Clusters"><span class="toc-number">2.4.</span> <span class="toc-text">Dimension Clusters</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创新改进"><span class="toc-number">2.</span> <span class="toc-text">创新改进</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Batch-Normalization"><span class="toc-number">2.1.</span> <span class="toc-text">Batch Normalization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#High-Resolution-Classifie"><span class="toc-number">2.2.</span> <span class="toc-text">High Resolution Classifie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Convolutional-With-Anchor-Boxes"><span class="toc-number">2.3.</span> <span class="toc-text">Convolutional With Anchor Boxes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dimension-Clusters"><span class="toc-number">2.4.</span> <span class="toc-text">Dimension Clusters</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -630,9 +630,26 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 5
+        Total : 6
         </div>
         <!-- search  -->
         
@@ -648,12 +665,27 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">11/21</span><a class="archive-post-title" href="/2018/11/21/torchvision-transforms模块介绍/">torchvision.transforms模块介绍</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">11/21</span><a class="archive-post-title" href="/2018/11/21/pytorch入门文档/">pytorch入门文档</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">11/20</span><a class="archive-post-title" href="/2018/11/20/R-CNN/">R-CNN</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span><a class="archive-post-title" href="/2018/11/16/YOLO/">YOLO</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/12</span><a class="archive-post-title" href="/2018/11/12/YOLO_V2/">YOLO V2</a>
         </li>
     
     
@@ -668,25 +700,6 @@ top:50vh;
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href="/2018/11/04/hello-world/">Hello World</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/16</span><a class="archive-post-title" href="/2018/11/16/YOLO/">YOLO</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/12</span><a class="archive-post-title" href="/2018/11/12/YOLO_V2/">YOLO V2</a>
         </li>
     
     </ul></div>
