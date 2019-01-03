@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>YOLO · Zzh</title>
+    <title>Zzh</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">Zzh</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">YOLO</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">Zzh</a>
 </header>
@@ -231,76 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            YOLO
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="目标检测">目标检测</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="论文">论文</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.3k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2018/11/16</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -401,89 +338,41 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p><img src="https://i.imgur.com/zKBlMhv.png" alt=""><br><a id="more"></a></p>
-<blockquote>
-<p>YOLO是一种真正端到端训练和预测的网络模型，它将目标探测作为一个回归问题来处理，直接从整张图片中预测bounding boxes和物体类别概率。YOLO最大的优势是在速度极快并且还实现了较高的检测性能，在显卡上运行可以达到45的帧率，fast版本可以达到155的帧率，与RCNN相比定位错误比较明显也是YOLO的主要劣势，但背景误检率比RCNN要低.</p>
-</blockquote>
-<hr>
-<h2 id="YOLO的优缺点："><a href="#YOLO的优缺点：" class="headerlink" title="YOLO的优缺点："></a>YOLO的优缺点：</h2><p>优点：<br>1、快、很快，不信可以去看<a href="http://pjreddie.com/yolo/" target="_blank" rel="noopener">视频</a>.<br>2、YOLO是基于全图的目标检测，考虑了图像信息的上下文内容，而RCNN等则是先提取出候选区域再识别的(仅对特定区域进行处理)，这也是YOLO的背景误检率较低的原因.<br>3、泛化性很高，用常规图像训练，再对艺术照进行预测，也得到了很好的效果.<br>缺点是accuracy还不是最好的，其中主要定位错误，特别是小目标.</p>
-<hr>
-<h2 id="思想原理"><a href="#思想原理" class="headerlink" title="思想原理"></a>思想原理</h2><p>&#160; &#160; &#160; &#160;把图片分成S×S的格子，如果一个目标的中心落在了某个格子中，那么这个格子就负责探测这个目标；每个格子预测B个bbox和box对应的置信度confidence分数，置信度公式为：</p>
-<script type="math/tex; mode=display">confidence=Pr(Object)\ast IOU_{pred}^{truth}</script><p>&#160; &#160; &#160; &#160;如果没有目标在格子中，则置信度分数为0，否则置信度分数为IOU交并比.每个bounding box预测五个值，分别是x、y、w、h、置信度分数，(x，y)是与相对于格子的box的中心坐标，w、h则是相对于整张图像的box长宽。同时每个格子还预测C条件概率Pr(ClassijObject)，这里还要重点注意的是，无论每个格子预测多少个bounding box，规定都只预测一个类别。<br><img src="https://img-blog.csdnimg.cn/20181026231748893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=,size_27,color_FFFFFF,t_70" style="zoom:80%"><br>&#160; &#160; &#160; &#160;在测试时，每个box通过类别概率和box置信度相乘来得到特定类别置信分数：</p>
-<script type="math/tex; mode=display">Pr(Class_{i}|Object)\ast Pr(Object)\ast IOU_{pred}^{truth}=Pr(Class_{i})\ast IOU_{pred}^{truth}</script><p>&#160; &#160; &#160; &#160;这个分数衡量box中的类别概率以及预测框和目标的匹配程度。<br><img src="https://img-blog.csdnimg.cn/20181026231950699.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=,size_27,color_FFFFFF,t_70" style="zoom:70%"><br>&#160; &#160; &#160; &#160;24层卷积、2层全连接层；单位卷积用来减少网络规模；利用ImageNet(224×224)进行预训练；但探测的时候图像尺寸是448×448的。</p>
-<hr>
-<h2 id="loss函数"><a href="#loss函数" class="headerlink" title="loss函数"></a>loss函数</h2><p>&#160; &#160; &#160; &#160;使用的是平方和误差，要注意的是预测的bounding box五个值是要被归一化的，以免导致各个输出维度的取值范围差别很大，进而导致训练的时候，网络更关注数值大的维度。使用sum-squared error的优点是因为它是很好优化的，但缺点是它将位置预测和类别预测平等对待，这不合适，因为图像中大多数网格都是不包含目标的，这样优化下去会趋势这些格子的置信度分数为0，相对于包含目标的格子是不均衡的。<br>&#160; &#160; &#160; &#160;解决办法是赋予不同的权重：和，平方和误差对大框和小框的误差权衡是一样的，而我们的错误指标应该要体现出，大框的小偏差的重要性不如小框的小偏差的重要性(因为小框的一点偏差对结果影响大)。为了部分解决这个问题，我们直接预测边界框宽度和高度的平方根，而不是宽度和高度，为什么要这样就不解释了，画图即可。<br>&#160; &#160; &#160; &#160;YOLO为每个网格单元预测多个边界框。在训练时，每个目标我们只需要一个边界框预测器来负责。若某预测器的预测值与目标的实际值的IOU值最高，则这个预测器被指定为“负责”预测该目标。这导致边界框预测器的专业化。每个预测器可以更好地预测特定大小，方向角，或目标的类别，从而改善整体召回率。训练时还进行了数据增强、Non-maximal suppression等。<br><img src="https://img-blog.csdnimg.cn/20181026234551892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=,size_27,color_FFFFFF,t_70" style="zoom:80%">    </p>
-<hr>
-<h2 id="Limitations-of-YOLO"><a href="#Limitations-of-YOLO" class="headerlink" title="Limitations of YOLO"></a>Limitations of YOLO</h2><p>1、因为一个cell只能预测一个类，所以当小目标聚集的时候，就变得非常困难<br>2、预测的bbox毕竟是从数据集中学习到的，当预测没见过的长宽比例不同的物体时，就很难去泛化了<br>3、大小框误差不均衡问题，即使通过平方根技巧改变优化目标，仍然没改变错误定位的问题</p>
-<hr>
-<h2 id="速度对比"><a href="#速度对比" class="headerlink" title="速度对比"></a>速度对比</h2><p><img src="https://img-blog.csdnimg.cn/20181026235131207.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=,size_27,color_FFFFFF,t_70" style="zoom:80%"> </p>
-<h2 id="VOC-2007-Error-Analysis"><a href="#VOC-2007-Error-Analysis" class="headerlink" title="VOC 2007 Error Analysis"></a>VOC 2007 Error Analysis</h2><p><img src="https://img-blog.csdnimg.cn/20181026235415986.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=,size_27,color_FFFFFF,t_70" style="zoom:80%"><br>&#160; &#160; &#160; &#160;总结YOLO最牛批的地方在于，真正的端到端的目标检测算法，一种新的方式，速度极快！！！！但说实话，YOLO系列论文写的实在是太过于简单，其中详细原理还要去看代码!</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://arxiv.org/abs/1506.02640" target="_blank" rel="noopener">You Only Look Once: Unified, Real-Time Object Detection</a></li>
-</ul>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="https://zzh0908.github.io">zzh</a>
-            </p><p>原文链接：<a href="https://zzh0908.github.io/2018/11/16/YOLO/">https://zzh0908.github.io/2018/11/16/YOLO/</a>
-            </p><p>发表日期：<a href="https://zzh0908.github.io/2018/11/16/YOLO/">November 16th 2018, 8:39:17 pm</a>
-            </p><p>更新日期：<a href="https://zzh0908.github.io/2018/11/16/YOLO/">December 24th 2018, 5:08:53 pm</a>
-            </p><p>版权声明：</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/01/03/OverFeat/">
+            
+                <span>OverFeat</span>
+        </a>
+        <div class="abstract-content">
+            <p><img src="https://i.imgur.com/ETYex2l.png" alt=""><br>
+        </p></div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/03</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="目标检测">目标检测</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="论文">论文</a>
+    
+</div>
+            
         </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2018/11/20/R-CNN/" title="R-CNN">
-                    <div class="nextTitle">R-CNN</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2018/11/12/YOLO_V2/" title="YOLO V2">
-                    <div class="prevTitle">YOLO V2</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-    <div id="comment"></div>
-    <script>
-    new Valine({
-        el: '#comment' ,
-        notify:false, 
-        verify:false, 
-        appId: "2bkESrIhCMllXK8zFa7FIPJf-gzGzoHsz",
-        appKey: "3xXcRtuhKEfQyp2opnkOE9Ae",
-        placeholder: "我想变有钱...........",
-        path:window.location.pathname, 
-        avatar:'mm' 
-    });
-    </script>
-
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -561,24 +450,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#YOLO的优缺点："><span class="toc-number">1.</span> <span class="toc-text">YOLO的优缺点：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思想原理"><span class="toc-number">2.</span> <span class="toc-text">思想原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#loss函数"><span class="toc-number">3.</span> <span class="toc-text">loss函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Limitations-of-YOLO"><span class="toc-number">4.</span> <span class="toc-text">Limitations of YOLO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#速度对比"><span class="toc-number">5.</span> <span class="toc-text">速度对比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VOC-2007-Error-Analysis"><span class="toc-number">6.</span> <span class="toc-text">VOC 2007 Error Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">7.</span> <span class="toc-text">参考文献</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -899,8 +770,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
