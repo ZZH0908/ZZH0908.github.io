@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,10 +40,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
-
 
 
 
@@ -58,7 +54,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon1.ico?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
 
 
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
@@ -76,10 +72,10 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '6.7.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -100,19 +96,18 @@
 
 
 
-  <meta name="keywords" content="pytorch">
+  <meta name="description" content="![](https://i.imgur.com/H6o8MuU.png)">
+<meta name="keywords" content="pytorch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="torchvision.transforms模块介绍">
 <meta property="og:url" content="https://www.ahbzzzh.cn/2018/11/21/torchvision-transforms模块介绍/index.html">
 <meta property="og:site_name" content="稍安勿躁zzh">
+<meta property="og:description" content="![](https://i.imgur.com/H6o8MuU.png)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.imgur.com/H6o8MuU.png">
-<meta property="og:image" content="https://i.imgur.com/9n14yfU.jpg">
-<meta property="og:image" content="https://i.imgur.com/YecvFTP.png">
 <meta property="og:updated_time" content="2018-12-24T09:05:16.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="torchvision.transforms模块介绍">
-<meta name="twitter:image" content="https://i.imgur.com/H6o8MuU.png">
+<meta name="twitter:description" content="![](https://i.imgur.com/H6o8MuU.png)">
 
 
 
@@ -236,57 +231,6 @@
         
         
           
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
     
@@ -305,6 +249,9 @@
       
     </ul>
   
+
+  
+    
 
   
 
@@ -326,9 +273,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -354,7 +298,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzh">
       <meta itemprop="description" content="最怕一生碌碌无为，还说平凡难能可贵">
-      <meta itemprop="image" content="/images/toux.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -437,30 +381,11 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2018/11/21/torchvision-transforms模块介绍/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/21/torchvision-transforms模块介绍/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
           
 
           
@@ -474,7 +399,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5.2k</span>
+                <span title="本文字数"></span>
               
 
               
@@ -488,7 +413,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">5 分钟</span>
+                <span title="阅读时长"></span>
               
             </div>
           
@@ -508,85 +433,106 @@
       
 
       
-        <p><img src="https://i.imgur.com/H6o8MuU.png" alt=""><br><a id="more"></a></p>
-<blockquote>
-<p>transforms是torchvision中常规的图像变换模块，训练模型时基本上都会用到这些操作来进行数据增强~<br>模块学习还是尽量去看官方文档，但文档有些简略，这时候就要看源码了</p>
-</blockquote>
-<h2 id="常规的图像变换操作"><a href="#常规的图像变换操作" class="headerlink" title="常规的图像变换操作"></a>常规的图像变换操作</h2><h3 id="Compose"><a href="#Compose" class="headerlink" title="Compose"></a>Compose</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">Compose</span><span class="params">(transforms)</span></span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>参数：包含Transform对象的列表<br>官方文档没说能返回什么…..翻开源码</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Compose</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""Composes several transforms together.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        transforms (list of ``Transform`` objects): list of transforms to compose.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Example:</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; transforms.Compose([</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt;     transforms.CenterCrop(10),</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt;     transforms.ToTensor(),</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; ])</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, transforms)</span>:</span></span><br><span class="line">        self.transforms = transforms</span><br><span class="line">	<span class="comment"># 返回进行所有变换后的图像</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, img)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> self.transforms:</span><br><span class="line">            img = t(img)</span><br><span class="line">        <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        format_string = self.__class__.__name__ + <span class="string">'('</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> self.transforms:</span><br><span class="line">            format_string += <span class="string">'\n'</span></span><br><span class="line">            format_string += <span class="string">'    &#123;0&#125;'</span>.format(t)</span><br><span class="line">        format_string += <span class="string">'\n)'</span></span><br><span class="line">        <span class="keyword">return</span> format_string</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>call</strong>可以使得类实例通过传递相应参数像调用函数一样来使用<br><strong>repr</strong>功能是用于显示类实例的属性信息等</p>
-</blockquote>
-<h3 id="CenterCrop中心裁剪"><a href="#CenterCrop中心裁剪" class="headerlink" title="CenterCrop中心裁剪"></a>CenterCrop中心裁剪</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">CenterCrop</span><span class="params">(size)</span></span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>参数：size是希望裁剪后输出的尺寸，值为一个序列或者一个int整数，序列比如(200,100)<br>为int值a时，就等价于(a,a)</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> functional <span class="keyword">as</span> F</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CenterCrop</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""Crops the given PIL Image at the center.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        size (sequence or int): Desired output size of the crop. If size is an</span></span><br><span class="line"><span class="string">            int instead of sequence like (h, w), a square crop (size, size) is</span></span><br><span class="line"><span class="string">            made.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, size)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> isinstance(size, numbers.Number):</span><br><span class="line">            self.size = (int(size), int(size))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.size = size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, img)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            img (PIL Image): Image to be cropped.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            PIL Image: Cropped image.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> F.center_crop(img, self.size)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__class__.__name__ + <span class="string">'(size=&#123;0&#125;)'</span>.format(self.size)</span><br><span class="line"><span class="comment"># 实际上这些图像变换功能的函数都在functional模块中</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">center_crop</span><span class="params">(img, output_size)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> isinstance(output_size, numbers.Number):</span><br><span class="line">        output_size = (int(output_size), int(output_size))</span><br><span class="line">    w, h = img.size</span><br><span class="line">    th, tw = output_size</span><br><span class="line">    i = int(round((h - th) / <span class="number">2.</span>))</span><br><span class="line">    j = int(round((w - tw) / <span class="number">2.</span>))</span><br><span class="line">    <span class="keyword">return</span> crop(img, i, j, th, tw)</span><br></pre></td></tr></table></figure>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><blockquote>
-<p>可以看到实际上这些图像变换功能的函数都在functional模块中，而Transform对象也大致都有<strong>init</strong>、<br><strong>call</strong>、<strong>repr</strong>这几个’魔法’函数组成</p>
-</blockquote>
-<p>下面就只进行简单介绍、认识一下…<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">ColorJitter</span><span class="params">(brightness=<span class="number">0</span>, contrast=<span class="number">0</span>, saturation=<span class="number">0</span>, hue=<span class="number">0</span>)</span></span></span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>随机亮度、对比度、饱和度调整，注意是随机采样的<br>参数：</p>
-<ul>
-<li>brightness：均匀随机采样，区间[max(0, 1 - brightness), 1 + brightness].</li>
-<li>contrast：均匀随机采样，区间[max(0, 1 - contrast), 1 + contrast].</li>
-<li>saturation：同理.</li>
-<li>hue (float) – How much to jitter hue. hue_factor is chosen uniformly from [-hue, hue]<br>Should be &gt;=0 and &lt;= 0.5.</li>
-</ul>
-</blockquote>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">FiveCrop</span><span class="params">(size)</span></span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>对给定PIL图像进行四角裁剪和中心裁剪<br>参数：size值和上面中心裁剪同理<br>注意：这个操作会造成输入和标签的不匹配，因为你给定n个图像返回5×n个结果~官方也给出了解决办法<br>在TSN算法(行为识别)看到过这种用法，第一次见~~不是很明白这种操作</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>transform = Compose([</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>   FiveCrop(size), <span class="comment"># this is a list of PIL Images</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>   Lambda(<span class="keyword">lambda</span> crops: torch.stack([ToTensor()(crop) <span class="keyword">for</span> crop <span class="keyword">in</span> crops])) <span class="comment"># returns a 4D tensor</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment">#In your test loop you can do the following:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>input, target = batch <span class="comment"># input is a 5d tensor, target is 2d</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bs, ncrops, c, h, w = input.size()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result = model(input.view(<span class="number">-1</span>, c, h, w)) <span class="comment"># 传入的时候融合batch和裁剪维度</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result_avg = result.view(bs, ncrops, <span class="number">-1</span>).mean(<span class="number">1</span>) <span class="comment"># 对结果，对所有样本的ncrops取平均，所以由此看来，尽管是返回五倍的数据，但对最后的结果是汇总的</span></span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">Grayscale</span><span class="params">(num_output_channels=<span class="number">1</span>)</span></span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>转换图像为灰度图像<br>参数：1或3<br>返回：灰度图像，当为1时，返回一个单通道图像；为3时，返回通道数为3的图像(r == g == b)<br>返回图像类型是PIL</p>
-</blockquote>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">RandomCrop</span><span class="params">(size, padding=None, pad_if_needed=False, fill=<span class="number">0</span>, padding_mode=<span class="string">'constant'</span>)</span></span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>随机裁剪<br>参数：</p>
-<ul>
-<li>size：输出尺寸</li>
-<li>padding：对图像上下作用进行填充，手动填充….</li>
-<li>pad_if_needed：True时，若需要输出比输入尺寸大，则进行自动填充<br>后面两个参数是官方文档写的，但源码没有这两个参数，pytorch版本是一致的，不知道为什么~</li>
-</ul>
-</blockquote>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">RandomRotation</span><span class="params">(degrees, resample=False, expand=False, center=None)</span></span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>随机角度旋转<br>参数：</p>
-<ul>
-<li>degrees：角度范围，(min, max)或者(-degrees, +degrees)</li>
-<li>resample：重采样，({PIL.Image.NEAREST, PIL.Image.BILINEAR, PIL.Image.BICUBIC}, optional)</li>
-<li>expand：为False时，旋转后超出尺寸区域就略去；为True时，则扩展图像尺寸使其完全包含原始图像</li>
-<li>center:旋转中心，默认是图像中心</li>
-</ul>
-</blockquote>
-<hr>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">Normalize</span><span class="params">(mean, std)</span></span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>根据给定的均值和方差对tensor类型图像进行规范化</p>
-</blockquote>
-<h3 id="Conversion-Transforms"><a href="#Conversion-Transforms" class="headerlink" title="Conversion Transforms"></a>Conversion Transforms</h3><blockquote>
-<p>Convert a tensor or an ndarray to PIL Image.<br>class torchvision.transforms.ToPILImage(mode=None)<br>class torchvision.transforms.ToTensor<br>Convert a PIL Image or numpy.ndarray to tensor.</p>
-</blockquote>
-<h3 id="Generic-Transforms"><a href="#Generic-Transforms" class="headerlink" title="Generic Transforms"></a>Generic Transforms</h3><blockquote>
-<p>class torchvision.transforms.Lambda(lambd)<br>将用户自定义的函数作为一个transform，函数中当然也可以使用transform操作，为用户提供一定的灵活度<br>参数：lambd函数</p>
-</blockquote>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">transfer = T.Compose([</span><br><span class="line">    T.RandomRotation(<span class="number">50</span>),</span><br><span class="line">    T.RandomCrop(size=<span class="number">400</span>, padding=<span class="number">0</span>, pad_if_needed=<span class="keyword">True</span>),</span><br><span class="line">    T.RandomGrayscale(p=<span class="number">0.6</span>),</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line">image = Image.open(<span class="string">"E:/temp/czym.jpg"</span>)</span><br><span class="line"><span class="comment"># image = cv2.imread('E:/temp/200.jpg')</span></span><br><span class="line"><span class="comment"># image = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))</span></span><br><span class="line">image_transfered = transfer(image)</span><br><span class="line">image_transfered.show()</span><br></pre></td></tr></table></figure>
-<p>原始图像：<br><img src="https://i.imgur.com/9n14yfU.jpg" alt="原始图像"><br>转换后图像：<br><img src="https://i.imgur.com/YecvFTP.png" alt="转换后的图像"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://pytorch.org/docs/stable/torchvision/transforms.html" target="_blank" rel="noopener">https://pytorch.org/docs/stable/torchvision/transforms.html</a></li>
-</ul>
+        ![](https://i.imgur.com/H6o8MuU.png)
+<a id="more"></a>
+>transforms是torchvision中常规的图像变换模块，训练模型时基本上都会用到这些操作来进行数据增强~
+>模块学习还是尽量去看官方文档，但文档有些简略，这时候就要看源码了
 
+## 常规的图像变换操作
+### Compose
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">Compose</span><span class="params">(transforms)</span></span></span><br></pre></td></tr></table></figure>
+
+>参数：包含Transform对象的列表
+官方文档没说能返回什么.....翻开源码
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Compose</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""Composes several transforms together.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        transforms (list of ``Transform`` objects): list of transforms to compose.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Example:</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; transforms.Compose([</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt;     transforms.CenterCrop(10),</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt;     transforms.ToTensor(),</span></span><br><span class="line"><span class="string">        &gt;&gt;&gt; ])</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, transforms)</span>:</span></span><br><span class="line">        self.transforms = transforms</span><br><span class="line">	<span class="comment"># 返回进行所有变换后的图像</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, img)</span>:</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> self.transforms:</span><br><span class="line">            img = t(img)</span><br><span class="line">        <span class="keyword">return</span> img</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        format_string = self.__class__.__name__ + <span class="string">'('</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> self.transforms:</span><br><span class="line">            format_string += <span class="string">'\n'</span></span><br><span class="line">            format_string += <span class="string">'    &#123;0&#125;'</span>.format(t)</span><br><span class="line">        format_string += <span class="string">'\n)'</span></span><br><span class="line">        <span class="keyword">return</span> format_string</span><br></pre></td></tr></table></figure>
+
+>__call__可以使得类实例通过传递相应参数像调用函数一样来使用
+>__repr__功能是用于显示类实例的属性信息等
+
+### CenterCrop中心裁剪
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">CenterCrop</span><span class="params">(size)</span></span></span><br></pre></td></tr></table></figure>
+
+>参数：size是希望裁剪后输出的尺寸，值为一个序列或者一个int整数，序列比如(200,100)
+>为int值a时，就等价于(a,a)
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> functional <span class="keyword">as</span> F</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CenterCrop</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""Crops the given PIL Image at the center.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        size (sequence or int): Desired output size of the crop. If size is an</span></span><br><span class="line"><span class="string">            int instead of sequence like (h, w), a square crop (size, size) is</span></span><br><span class="line"><span class="string">            made.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, size)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> isinstance(size, numbers.Number):</span><br><span class="line">            self.size = (int(size), int(size))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.size = size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, img)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Args:</span></span><br><span class="line"><span class="string">            img (PIL Image): Image to be cropped.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Returns:</span></span><br><span class="line"><span class="string">            PIL Image: Cropped image.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> F.center_crop(img, self.size)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.__class__.__name__ + <span class="string">'(size=&#123;0&#125;)'</span>.format(self.size)</span><br><span class="line"><span class="comment"># 实际上这些图像变换功能的函数都在functional模块中</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">center_crop</span><span class="params">(img, output_size)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> isinstance(output_size, numbers.Number):</span><br><span class="line">        output_size = (int(output_size), int(output_size))</span><br><span class="line">    w, h = img.size</span><br><span class="line">    th, tw = output_size</span><br><span class="line">    i = int(round((h - th) / <span class="number">2.</span>))</span><br><span class="line">    j = int(round((w - tw) / <span class="number">2.</span>))</span><br><span class="line">    <span class="keyword">return</span> crop(img, i, j, th, tw)</span><br></pre></td></tr></table></figure>
+
+### 其他
+> 可以看到实际上这些图像变换功能的函数都在functional模块中，而Transform对象也大致都有__init__、
+> __call__、__repr__这几个'魔法'函数组成
+
+下面就只进行简单介绍、认识一下...
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">ColorJitter</span><span class="params">(brightness=<span class="number">0</span>, contrast=<span class="number">0</span>, saturation=<span class="number">0</span>, hue=<span class="number">0</span>)</span></span></span><br></pre></td></tr></table></figure>
+
+> 随机亮度、对比度、饱和度调整，注意是随机采样的
+> 参数：
+> - brightness：均匀随机采样，区间[max(0, 1 - brightness), 1 + brightness].
+> - contrast：均匀随机采样，区间[max(0, 1 - contrast), 1 + contrast].
+> - saturation：同理.
+> - hue (float) – How much to jitter hue. hue_factor is chosen uniformly from [-hue, hue]
+> Should be >=0 and <= 0.5.="" ---="" <figure="" class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">FiveCrop</span><span class="params">(size)</span></span></span><br></pre></td></tr></table>
+
+> 对给定PIL图像进行四角裁剪和中心裁剪
+> 参数：size值和上面中心裁剪同理
+> 注意：这个操作会造成输入和标签的不匹配，因为你给定n个图像返回5×n个结果~官方也给出了解决办法
+> 在TSN算法(行为识别)看到过这种用法，第一次见~~不是很明白这种操作
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>transform = Compose([</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>   FiveCrop(size), <span class="comment"># this is a list of PIL Images</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>   Lambda(<span class="keyword">lambda</span> crops: torch.stack([ToTensor()(crop) <span class="keyword">for</span> crop <span class="keyword">in</span> crops])) <span class="comment"># returns a 4D tensor</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="comment">#In your test loop you can do the following:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>input, target = batch <span class="comment"># input is a 5d tensor, target is 2d</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bs, ncrops, c, h, w = input.size()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result = model(input.view(<span class="number">-1</span>, c, h, w)) <span class="comment"># 传入的时候融合batch和裁剪维度</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>result_avg = result.view(bs, ncrops, <span class="number">-1</span>).mean(<span class="number">1</span>) <span class="comment"># 对结果，对所有样本的ncrops取平均，所以由此看来，尽管是返回五倍的数据，但对最后的结果是汇总的</span></span><br></pre></td></tr></table></figure>
+
+---
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">Grayscale</span><span class="params">(num_output_channels=<span class="number">1</span>)</span></span></span><br></pre></td></tr></table></figure>
+
+> 转换图像为灰度图像
+> 参数：1或3
+> 返回：灰度图像，当为1时，返回一个单通道图像；为3时，返回通道数为3的图像(r == g == b)
+> 返回图像类型是PIL
+
+---
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">RandomCrop</span><span class="params">(size, padding=None, pad_if_needed=False, fill=<span class="number">0</span>, padding_mode=<span class="string">'constant'</span>)</span></span></span><br></pre></td></tr></table></figure>
+
+> 随机裁剪
+> 参数：
+> - size：输出尺寸
+> - padding：对图像上下作用进行填充，手动填充....
+> - pad_if_needed：True时，若需要输出比输入尺寸大，则进行自动填充
+> 后面两个参数是官方文档写的，但源码没有这两个参数，pytorch版本是一致的，不知道为什么~
+
+---
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">RandomRotation</span><span class="params">(degrees, resample=False, expand=False, center=None)</span></span></span><br></pre></td></tr></table></figure>
+
+> 随机角度旋转
+> 参数：
+> - degrees：角度范围，(min, max)或者(-degrees, +degrees)
+> - resample：重采样，({PIL.Image.NEAREST, PIL.Image.BILINEAR, PIL.Image.BICUBIC}, optional)
+> - expand：为False时，旋转后超出尺寸区域就略去；为True时，则扩展图像尺寸使其完全包含原始图像
+> - center:旋转中心，默认是图像中心
+
+---
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">torchvision</span>.<span class="title">transforms</span>.<span class="title">Normalize</span><span class="params">(mean, std)</span></span></span><br></pre></td></tr></table></figure>
+
+> 根据给定的均值和方差对tensor类型图像进行规范化
+
+### Conversion Transforms
+> Convert a tensor or an ndarray to PIL Image.
+> class torchvision.transforms.ToPILImage(mode=None)
+> class torchvision.transforms.ToTensor
+> Convert a PIL Image or numpy.ndarray to tensor.
+
+### Generic Transforms
+> class torchvision.transforms.Lambda(lambd)
+> 将用户自定义的函数作为一个transform，函数中当然也可以使用transform操作，为用户提供一定的灵活度
+> 参数：lambd函数
+
+## 举例
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> T</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">transfer = T.Compose([</span><br><span class="line">    T.RandomRotation(<span class="number">50</span>),</span><br><span class="line">    T.RandomCrop(size=<span class="number">400</span>, padding=<span class="number">0</span>, pad_if_needed=<span class="keyword">True</span>),</span><br><span class="line">    T.RandomGrayscale(p=<span class="number">0.6</span>),</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line">image = Image.open(<span class="string">"E:/temp/czym.jpg"</span>)</span><br><span class="line"><span class="comment"># image = cv2.imread('E:/temp/200.jpg')</span></span><br><span class="line"><span class="comment"># image = Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))</span></span><br><span class="line">image_transfered = transfer(image)</span><br><span class="line">image_transfered.show()</span><br></pre></td></tr></table></figure>
+
+原始图像：
+![原始图像](https://i.imgur.com/9n14yfU.jpg)
+转换后图像：
+![转换后的图像](https://i.imgur.com/YecvFTP.png)
+## 参考
+- [https://pytorch.org/docs/stable/torchvision/transforms.html](https://pytorch.org/docs/stable/torchvision/transforms.html)</=>
       
     </div>
 
@@ -657,10 +603,6 @@
           
 
   
-    <div class="comments" id="comments">
-    </div>
-
-  
 
 
 
@@ -683,21 +625,10 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/toux.jpg" alt="zzh">
             
               <p class="site-author-name" itemprop="name">zzh</p>
               <p class="site-description motion-element" itemprop="description">最怕一生碌碌无为，还说平凡难能可贵</p>
@@ -775,54 +706,6 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/ZZH0908" title="GitHub &rarr; https://github.com/ZZH0908" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:bzzzh@zjut.edu.cn" title="E-Mail &rarr; mailto:bzzzh@zjut.edu.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://cn.bing.com" title="Bing &rarr; https://cn.bing.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-bing"></i>Bing</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.baidu.com" title="Baidu &rarr; https://www.baidu.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-baidu"></i>Baidu</a>
-                </span>
-              
-            </div>
-          
 
           
 
@@ -837,23 +720,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常规的图像变换操作"><span class="nav-number">1.</span> <span class="nav-text">常规的图像变换操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compose"><span class="nav-number">1.1.</span> <span class="nav-text">Compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CenterCrop中心裁剪"><span class="nav-number">1.2.</span> <span class="nav-text">CenterCrop中心裁剪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.3.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conversion-Transforms"><span class="nav-number">1.4.</span> <span class="nav-text">Conversion Transforms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generic-Transforms"><span class="nav-number">1.5.</span> <span class="nav-text">Generic Transforms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举例"><span class="nav-number">2.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -880,7 +746,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">50k</span>
+    <span title="站点总字数"></span>
   
 
   
@@ -889,7 +755,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">45 分钟</span>
+    <span title="站点阅读时长"></span>
   
 </div>
 
@@ -902,38 +768,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -949,8 +789,6 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -981,8 +819,6 @@
 
 
 
-  
-
 
 
 
@@ -1006,9 +842,6 @@
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
 
   
 
@@ -1023,10 +856,7 @@
   
 
 
-  <script src="/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
-
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
 
 
 
@@ -1044,35 +874,6 @@
 
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '2bkESrIhCMllXK8zFa7FIPJf-gzGzoHsz',
-    appKey: '3xXcRtuhKEfQyp2opnkOE9Ae',
-    placeholder: '我想变有钱......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-</script>
-
-
 
 
   
@@ -1093,13 +894,6 @@
   
 
   
-  
-
-  
-  
-
-  
-
 
   
 

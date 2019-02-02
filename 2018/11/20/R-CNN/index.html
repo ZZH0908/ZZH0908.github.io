@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,10 +40,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
-
 
 
 
@@ -58,7 +54,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon1.ico?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
 
 
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
@@ -76,10 +72,10 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '6.7.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -100,13 +96,14 @@
 
 
 
-  <meta name="keywords" content="目标检测,论文">
+  <meta name="description" content="![](https://i.imgur.com/7uUW5DB.png)">
+<meta name="keywords" content="目标检测,论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R-CNN">
 <meta property="og:url" content="https://www.ahbzzzh.cn/2018/11/20/R-CNN/index.html">
 <meta property="og:site_name" content="稍安勿躁zzh">
+<meta property="og:description" content="![](https://i.imgur.com/7uUW5DB.png)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.imgur.com/7uUW5DB.png">
 <meta property="og:image" content="https://img-blog.csdn.net/20181013225816655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20181015173820730?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="https://img-blog.csdn.net/20181015215351217?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
@@ -116,7 +113,8 @@
 <meta property="og:updated_time" content="2018-12-24T09:13:35.098Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R-CNN">
-<meta name="twitter:image" content="https://i.imgur.com/7uUW5DB.png">
+<meta name="twitter:description" content="![](https://i.imgur.com/7uUW5DB.png)">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20181013225816655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 
 
 
@@ -240,57 +238,6 @@
         
         
           
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
     
@@ -309,6 +256,9 @@
       
     </ul>
   
+
+  
+    
 
   
 
@@ -330,9 +280,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -358,7 +305,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzh">
       <meta itemprop="description" content="最怕一生碌碌无为，还说平凡难能可贵">
-      <meta itemprop="image" content="/images/toux.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -441,30 +388,11 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2018/11/20/R-CNN/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/20/R-CNN/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
           
 
           
@@ -478,7 +406,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4k</span>
+                <span title="本文字数"></span>
               
 
               
@@ -492,7 +420,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长"></span>
               
             </div>
           
@@ -512,34 +440,75 @@
       
 
       
-        <p><img src="https://i.imgur.com/7uUW5DB.png" alt=""><br><a id="more"></a></p>
-<blockquote>
-<p>以往的目标检测算法不仅效果不好而且原理复杂，RCNN是一种简单并且可扩展的算法，在VOC2012数据集上mean average precision (mAP)提高了30%。RCNN主要使用了两个方法：(1) 使用CNN代替传统的特征提取方法来对候选区进行定位和分割 (2) 对于目标检测任务来说数据量是稀少的，所以采用了预训练CNN的策略。</p>
-</blockquote>
-<hr>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>&#160; &#160; &#160; &#160;特征问题，最初是利用SIFT和HOG并利用复杂的ensemble系统&#160;    的方法，后来由于基于生物上的视觉处理过程，由SIFT引入CNN，以及近些年CNN以成&#160; 为主流算法  （所以我得找个时间把上面得传统特征提取算法原理过一遍~）。由于近些年&#160; CNN在图像分类任务上  表现优异，本文作者就试图把图像分类任务扩展到目标探测上&#160; 来，实验表明利用CNN得优势相比传  统算法，在目标探测算法上取得了更好得效果。定&#160; 位问题和图像分类是不同的，其中，定位问题的   一种解决办法是被视为回归问题，然&#160; 而当时！这种方法取得效果并不好，另一种方法是利用滑窗的  思想；相反，RCNN原理是&#160; 对候选区进行识别。算法流程如下：<br><img src="https://img-blog.csdn.net/20181013225816655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%"><br>(1) 以整张图像作为输入<br>(2) 图去大约2000个候选区域<br>(3) 对每个候选区域利用CNN网络进行特征提取<br>(4) 利用特定类的线性SVM分类器对特征进行分类<br>&#160; &#160; &#160; &#160;需要注意的是，因为CNN需要相同维度的输入，所以要对候选区域进行reshape，但这样以来就会使目标对象变得扭曲进而丢失了其真实状态，对算法识别及泛化性方面有影响。在数据量稀少的情况下，为了防止模型过拟合会采用预训练的策略，目的是获得一个良好的初始化参数，预训练分为无监督和有监督，RCNN使用的是后者。</p>
-<hr>
-<h2 id="Object-detection-with-R-CNN"><a href="#Object-detection-with-R-CNN" class="headerlink" title="Object detection with R-CNN"></a>Object detection with R-CNN</h2><h3 id="Module-design"><a href="#Module-design" class="headerlink" title="Module design"></a>Module design</h3><p>&#160; &#160; &#160; &#160;Region proposals提取候选区的方法有很多：objectness, selective search, category-independent object proposals, constrained parametric min-cuts (CPMC)等，RCNN采用的selective search，作者解释说是为了更好的和以往的目标探测算法进行比较。Feature extraction对每个候选区域提取出4096维的特征向量，而输入则是227×227大小的RGB图像；在reshape之前，为了获得更多的区域上下文信息，对原始bbox进行扩充若干个像素。</p>
-<h3 id="Testtime-detection"><a href="#Testtime-detection" class="headerlink" title="Testtime detection"></a>Testtime detection</h3><p>&#160; &#160; &#160; &#160;测试阶段的重点是，在经过SVM之后，对所有的区域，针对独立的每个类应用greedy non-maximum suppression，NMS原理：<br><img src="https://img-blog.csdn.net/20181015173820730?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%">                           </p>
-<h3 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h3><p>&#160; &#160; &#160; &#160;训练迭代过程中，batchsize为128(其中正样本为32，负样本为96)，为什么要有正负例呢？因为使用的是二分类器；正负样本的选取是依据IOU的，小于某个阈值则为负样本，选择不同的阈值对最终结果有着不同的影响。训练过程采用了hard negative- mining方法，因为样本中正样本所占比例较小，这样训练出来的分类效果不好，会出现很多False Positive(把负样本预测为正)的情况，hard-negative就把这些扔进网络再训练，从而加强分类器判别假阳性的能力。</p>
-<hr>
-<h2 id="消融研究-Ablation-studies"><a href="#消融研究-Ablation-studies" class="headerlink" title="消融研究(Ablation studies)"></a>消融研究(Ablation studies)</h2><p>ablation study就是为了研究模型中所提出的一些结构是否有效而设计的实验，也就是（控制变量法）<br><img src="https://img-blog.csdn.net/20181015215351217?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%">   </p>
-<h2 id="Bounding-box-regression"><a href="#Bounding-box-regression" class="headerlink" title="Bounding box regression"></a>Bounding box regression</h2><p>基于pool5特征图利用线性回归模型对候选区域的box进行修正，实验表明此方法提高了3~4个百分点~</p>
-<hr>
-<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h2><h3 id="Object-proposal-transformations"><a href="#Object-proposal-transformations" class="headerlink" title="Object proposal transformations"></a>Object proposal transformations</h3><p>A补充材料中介绍的是，作者尝试了两种不同reshape图像的方式，并分析了对最终结果的影响；第一种是各向同性的(isotropically)，第二种是各向异性的(anisotropically)，如图所示：<br><img src="https://img-blog.csdn.net/20181016090113208?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%"><br>&#160; &#160; &#160; &#160;如图所示A代表这原始box边框，B属于各向同性的图像变换，C是各向异性的一个变体也属于这个范畴，D是各向异性的图像变换。所谓各项同性分为BC两种(“tightest square with context”和“tightest square without context”) ，根据英文就可以看出其意思，直白地说就是前者是先扩充图像上下文信息再reshap，后者是忽略周围地上下文信息使用灰色进行代替进而扩充成正方形；所谓各向异性就是直接对原图A进行reshape，从结果上看D图严重偏离了物体该有地自然形态，自然模型也就学习不到真实的东西。<br>&#160; &#160; &#160; &#160;对于每种变换，作者都进行了额外的上下文信息扩充，如图所示第一行的扩充像素为p=0，最后一行的扩充像素信息为p=16，p=16时会使得最终实验结果提升3~5个百分点。</p>
-<hr>
-<h3 id="Positive-vs-negative-examples-and-softmax"><a href="#Positive-vs-negative-examples-and-softmax" class="headerlink" title="Positive vs. negative examples and softmax"></a>Positive vs. negative examples and softmax</h3><blockquote>
-<p>为什么正负样本的定义对于softmax和svm是不同的呢？</p>
-</blockquote>
-<p>&#160; &#160; &#160; &#160;1、对于softmax正样本是IOU至少是0.5，其余的都是负样本；2、而SVM只使用真实原始box作为正样本，IOU小于0.3的才是负样本。作者解释，开始训练SVM时是基于Imagenet预训练模型的CNN特征的(那时候没有考虑使用微调)，比较下来2配置是很好的选择效果最佳；当开始使用微调时(使用softmax对候选区进行微调以适应样本)，使用2的配置发现效果很差。分析：怎么定义不是最重要的，重要的是微调需要一个大的样本来防止过拟合，而使用配置1正样本被扩展了30倍。这又产生了疑问，为什么要在微调之后再训练一个svm呢，不能直接用微调后的softmax输出吗？作者进行了实验，直接使用softmax会导致大约2歌百分点的map下降，原因可能是：1、微调的时候也就是配置1的样本定义方式在定位上是不准确的，因为IOU是0.5就可以算正样本了，这不科学；2、负样的采样方式是随机采样而不是使用hard negatives<br>&#160; &#160; &#160; &#160;总结，不使用SVM也可以获得接近但还有一点小差距的效果，如果有一些方法可以使微调阶段取得更好的效果，就可以放弃SVM阶段，这会简化和加快算法训练还不会损失算法性能。</p>
-<hr>
-<h3 id="Bounding-box-regression-1"><a href="#Bounding-box-regression-1" class="headerlink" title="Bounding-box regression"></a>Bounding-box regression</h3><p>&#160; &#160; &#160; &#160;假设有一组训练样本对：$\left \{ P^{i},G^{i} \right \}$，其中$P^{i}=P_{x}^{i},P_{y}^{i},P_{w}^{i},P_{z}^{i}$表示候选区域的中心坐标以及高度宽度，而$G^{i}=G_{x}^{i},G_{y}^{i},G_{w}^{i},G_{z}^{i}$则代表真实box边界框，我们的目的就是利用回归模型对候选区域box进行调整使其更复合真实bbox G。如图所示，其中$\hat{G}$是我们预测的新的边界框，我们的学习目标就是新的边界框和真实框尽可能地接近：<br><img src="https://img-blog.csdn.net/20181016123235431?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%"><br>&#160; &#160; &#160; &#160;对P框中心点进行位移，对长宽进行缩放，公式如下：</p>
-<script type="math/tex; mode=display">\hat{G}_{x}=P_{w}d_{x}(P)+P_{x}</script><script type="math/tex; mode=display">\hat{G}_{y}=P_{h}d_{y}(P)+P_{y}</script><script type="math/tex; mode=display">\hat{G}_{w}=P_{w}exp(d_{w}(P))</script><script type="math/tex; mode=display">\hat{G}_{h}=P_{h}exp(d_{h}(P))</script><p>&#160; &#160; &#160; &#160;其中d_(P)是作为一个线性函数，又是基于pool5特征的，则有：<script type="math/tex">d_{x,y,w,h}(P)=w_{x,y,w,h}^{T}\varnothing _{5}(P)</script>，我们通过优化一个最小二乘loss函数来得到最优参数W:<br><img src="https://img-blog.csdn.net/20181016131137279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:70%"><br>&#160; &#160; &#160; &#160;其中，t_表示原始边框P和真实边框G之间的映射，从上式可以看出，我们其实学习的是两种映射的近似，映射公式形式是一样的：</p>
-<script type="math/tex; mode=display">t_{x}=(G_{x}-P_{x})/P_{w}</script><script type="math/tex; mode=display">t_{y}=(G_{y}-P_{y})/P_{h}</script><script type="math/tex; mode=display">t_{w}=log(G_{w}/G_{w})</script><script type="math/tex; mode=display">t_{h}=log(G_{h}/G_{h})</script><p>&#160; &#160; &#160; &#160;作者还提到两个关于回归问题。1是loss函数的正则化参数设置问题；2就是当P相对于真实边界框G较远的时候，回归模型是不起作用的，在P和G  IOU较大时才起作用，原因是我们将映射看作是一个线性的，原因在这篇博客中解释的很好。</p>
-<hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://arxiv.org/abs/1311.2524v3" target="_blank" rel="noopener">Rich feature hierarchies for accurate object detection and semantic segmentation</a></li>
-</ul>
+        ![](https://i.imgur.com/7uUW5DB.png)
+<a id="more"></a>
+>以往的目标检测算法不仅效果不好而且原理复杂，RCNN是一种简单并且可扩展的算法，在VOC2012数据集上mean average precision (mAP)提高了30%。RCNN主要使用了两个方法：(1) 使用CNN代替传统的特征提取方法来对候选区进行定位和分割 (2) 对于目标检测任务来说数据量是稀少的，所以采用了预训练CNN的策略。
+
+------
+## Introduction
+&#160; &#160; &#160; &#160;特征问题，最初是利用SIFT和HOG并利用复杂的ensemble系统&#160;    的方法，后来由于基于生物上的视觉处理过程，由SIFT引入CNN，以及近些年CNN以成&#160; 为主流算法  （所以我得找个时间把上面得传统特征提取算法原理过一遍~）。由于近些年&#160; CNN在图像分类任务上  表现优异，本文作者就试图把图像分类任务扩展到目标探测上&#160; 来，实验表明利用CNN得优势相比传  统算法，在目标探测算法上取得了更好得效果。定&#160; 位问题和图像分类是不同的，其中，定位问题的   一种解决办法是被视为回归问题，然&#160; 而当时！这种方法取得效果并不好，另一种方法是利用滑窗的  思想；相反，RCNN原理是&#160; 对候选区进行识别。算法流程如下：
+<img src="https://img-blog.csdn.net/20181013225816655?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%">                   
+(1) 以整张图像作为输入
+(2) 图去大约2000个候选区域
+(3) 对每个候选区域利用CNN网络进行特征提取
+(4) 利用特定类的线性SVM分类器对特征进行分类
+&#160; &#160; &#160; &#160;需要注意的是，因为CNN需要相同维度的输入，所以要对候选区域进行reshape，但这样以来就会使目标对象变得扭曲进而丢失了其真实状态，对算法识别及泛化性方面有影响。在数据量稀少的情况下，为了防止模型过拟合会采用预训练的策略，目的是获得一个良好的初始化参数，预训练分为无监督和有监督，RCNN使用的是后者。
+
+------
+## Object detection with R-CNN
+### Module design
+&#160; &#160; &#160; &#160;Region proposals提取候选区的方法有很多：objectness, selective search, category-independent object proposals, constrained parametric min-cuts (CPMC)等，RCNN采用的selective search，作者解释说是为了更好的和以往的目标探测算法进行比较。Feature extraction对每个候选区域提取出4096维的特征向量，而输入则是227×227大小的RGB图像；在reshape之前，为了获得更多的区域上下文信息，对原始bbox进行扩充若干个像素。
+### Testtime detection
+&#160; &#160; &#160; &#160;测试阶段的重点是，在经过SVM之后，对所有的区域，针对独立的每个类应用greedy non-maximum suppression，NMS原理：
+<img src="https://img-blog.csdn.net/20181015173820730?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%">                           
+### Training
+&#160; &#160; &#160; &#160;训练迭代过程中，batchsize为128(其中正样本为32，负样本为96)，为什么要有正负例呢？因为使用的是二分类器；正负样本的选取是依据IOU的，小于某个阈值则为负样本，选择不同的阈值对最终结果有着不同的影响。训练过程采用了hard negative- mining方法，因为样本中正样本所占比例较小，这样训练出来的分类效果不好，会出现很多False Positive(把负样本预测为正)的情况，hard-negative就把这些扔进网络再训练，从而加强分类器判别假阳性的能力。
+
+------
+## 消融研究(Ablation studies)
+ablation study就是为了研究模型中所提出的一些结构是否有效而设计的实验，也就是（控制变量法）
+<img src="https://img-blog.csdn.net/20181015215351217?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%">   
+## Bounding box regression
+基于pool5特征图利用线性回归模型对候选区域的box进行修正，实验表明此方法提高了3~4个百分点~
+
+------
+## Appendix
+### Object proposal transformations
+A补充材料中介绍的是，作者尝试了两种不同reshape图像的方式，并分析了对最终结果的影响；第一种是各向同性的(isotropically)，第二种是各向异性的(anisotropically)，如图所示：
+<img src="https://img-blog.csdn.net/20181016090113208?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%">  
+&#160; &#160; &#160; &#160;如图所示A代表这原始box边框，B属于各向同性的图像变换，C是各向异性的一个变体也属于这个范畴，D是各向异性的图像变换。所谓各项同性分为BC两种(“tightest square with context”和“tightest square without context”) ，根据英文就可以看出其意思，直白地说就是前者是先扩充图像上下文信息再reshap，后者是忽略周围地上下文信息使用灰色进行代替进而扩充成正方形；所谓各向异性就是直接对原图A进行reshape，从结果上看D图严重偏离了物体该有地自然形态，自然模型也就学习不到真实的东西。
+&#160; &#160; &#160; &#160;对于每种变换，作者都进行了额外的上下文信息扩充，如图所示第一行的扩充像素为p=0，最后一行的扩充像素信息为p=16，p=16时会使得最终实验结果提升3~5个百分点。
+
+------
+### Positive vs. negative examples and softmax
+>为什么正负样本的定义对于softmax和svm是不同的呢？
+
+&#160; &#160; &#160; &#160;1、对于softmax正样本是IOU至少是0.5，其余的都是负样本；2、而SVM只使用真实原始box作为正样本，IOU小于0.3的才是负样本。作者解释，开始训练SVM时是基于Imagenet预训练模型的CNN特征的(那时候没有考虑使用微调)，比较下来2配置是很好的选择效果最佳；当开始使用微调时(使用softmax对候选区进行微调以适应样本)，使用2的配置发现效果很差。分析：怎么定义不是最重要的，重要的是微调需要一个大的样本来防止过拟合，而使用配置1正样本被扩展了30倍。这又产生了疑问，为什么要在微调之后再训练一个svm呢，不能直接用微调后的softmax输出吗？作者进行了实验，直接使用softmax会导致大约2歌百分点的map下降，原因可能是：1、微调的时候也就是配置1的样本定义方式在定位上是不准确的，因为IOU是0.5就可以算正样本了，这不科学；2、负样的采样方式是随机采样而不是使用hard negatives
+&#160; &#160; &#160; &#160;总结，不使用SVM也可以获得接近但还有一点小差距的效果，如果有一些方法可以使微调阶段取得更好的效果，就可以放弃SVM阶段，这会简化和加快算法训练还不会损失算法性能。
+
+------
+### Bounding-box regression
+&#160; &#160; &#160; &#160;假设有一组训练样本对：$\left \{ P^{i},G^{i} \right \}$，其中$P^{i}=P_{x}^{i},P_{y}^{i},P_{w}^{i},P_{z}^{i}$表示候选区域的中心坐标以及高度宽度，而$G^{i}=G_{x}^{i},G_{y}^{i},G_{w}^{i},G_{z}^{i}$则代表真实box边界框，我们的目的就是利用回归模型对候选区域box进行调整使其更复合真实bbox G。如图所示，其中$\hat{G}$是我们预测的新的边界框，我们的学习目标就是新的边界框和真实框尽可能地接近：
+<img src="https://img-blog.csdn.net/20181016123235431?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:80%">  
+&#160; &#160; &#160; &#160;对P框中心点进行位移，对长宽进行缩放，公式如下：
+$$\hat{G}_{x}=P_{w}d_{x}(P)+P_{x}$$   
+$$\hat{G}_{y}=P_{h}d_{y}(P)+P_{y}$$
+$$\hat{G}_{w}=P_{w}exp(d_{w}(P))$$
+$$\hat{G}_{h}=P_{h}exp(d_{h}(P))$$                                           
+&#160; &#160; &#160; &#160;其中d_(P)是作为一个线性函数，又是基于pool5特征的，则有：$$d_{x,y,w,h}(P)=w_{x,y,w,h}^{T}\varnothing _{5}(P)$$，我们通过优化一个最小二乘loss函数来得到最优参数W:
+<img src="https://img-blog.csdn.net/20181016131137279?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p6aDA5MDg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" style="zoom:70%">                                                
+&#160; &#160; &#160; &#160;其中，t_表示原始边框P和真实边框G之间的映射，从上式可以看出，我们其实学习的是两种映射的近似，映射公式形式是一样的：
+$$t_{x}=(G_{x}-P_{x})/P_{w}$$
+$$t_{y}=(G_{y}-P_{y})/P_{h}$$
+$$t_{w}=log(G_{w}/G_{w})$$
+$$t_{h}=log(G_{h}/G_{h})$$
+&#160; &#160; &#160; &#160;作者还提到两个关于回归问题。1是loss函数的正则化参数设置问题；2就是当P相对于真实边界框G较远的时候，回归模型是不起作用的，在P和G  IOU较大时才起作用，原因是我们将映射看作是一个线性的，原因在这篇博客中解释的很好。
+
+------
+## 参考文献
+- [Rich feature hierarchies for accurate object detection and semantic segmentation](https://arxiv.org/abs/1311.2524v3)
+
+
 
       
     </div>
@@ -613,10 +582,6 @@
           
 
   
-    <div class="comments" id="comments">
-    </div>
-
-  
 
 
 
@@ -639,21 +604,10 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/toux.jpg" alt="zzh">
             
               <p class="site-author-name" itemprop="name">zzh</p>
               <p class="site-description motion-element" itemprop="description">最怕一生碌碌无为，还说平凡难能可贵</p>
@@ -731,54 +685,6 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/ZZH0908" title="GitHub &rarr; https://github.com/ZZH0908" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:bzzzh@zjut.edu.cn" title="E-Mail &rarr; mailto:bzzzh@zjut.edu.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://cn.bing.com" title="Bing &rarr; https://cn.bing.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-bing"></i>Bing</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.baidu.com" title="Baidu &rarr; https://www.baidu.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-baidu"></i>Baidu</a>
-                </span>
-              
-            </div>
-          
 
           
 
@@ -793,23 +699,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-detection-with-R-CNN"><span class="nav-number">2.</span> <span class="nav-text">Object detection with R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Module-design"><span class="nav-number">2.1.</span> <span class="nav-text">Module design</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Testtime-detection"><span class="nav-number">2.2.</span> <span class="nav-text">Testtime detection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training"><span class="nav-number">2.3.</span> <span class="nav-text">Training</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消融研究-Ablation-studies"><span class="nav-number">3.</span> <span class="nav-text">消融研究(Ablation studies)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bounding-box-regression"><span class="nav-number">4.</span> <span class="nav-text">Bounding box regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Appendix"><span class="nav-number">5.</span> <span class="nav-text">Appendix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-proposal-transformations"><span class="nav-number">5.1.</span> <span class="nav-text">Object proposal transformations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Positive-vs-negative-examples-and-softmax"><span class="nav-number">5.2.</span> <span class="nav-text">Positive vs. negative examples and softmax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bounding-box-regression-1"><span class="nav-number">5.3.</span> <span class="nav-text">Bounding-box regression</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -836,7 +725,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">50k</span>
+    <span title="站点总字数"></span>
   
 
   
@@ -845,7 +734,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">45 分钟</span>
+    <span title="站点阅读时长"></span>
   
 </div>
 
@@ -858,38 +747,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -905,8 +768,6 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -937,8 +798,6 @@
 
 
 
-  
-
 
 
 
@@ -962,9 +821,6 @@
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
 
   
 
@@ -979,10 +835,7 @@
   
 
 
-  <script src="/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
-
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
 
 
 
@@ -1000,35 +853,6 @@
 
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '2bkESrIhCMllXK8zFa7FIPJf-gzGzoHsz',
-    appKey: '3xXcRtuhKEfQyp2opnkOE9Ae',
-    placeholder: '我想变有钱......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-</script>
-
-
 
 
   
@@ -1049,13 +873,6 @@
   
 
   
-  
-
-  
-  
-
-  
-
 
   
 

@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,10 +40,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
-
 
 
 
@@ -58,7 +54,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon1.ico?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
 
 
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
@@ -76,10 +72,10 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '6.7.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -100,18 +96,18 @@
 
 
 
-  <meta name="description" content="Matplotlib是一个Python 2D绘图库，Matplotlib试图让简单的事情变得简单让困难的变为可能.只需几行代码即可生成绘图，直方图，功率谱，条形图，错误图，散点图等.可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包              这篇博文参考了matplotli">
+  <meta name="description" content="Matplotlib是一个Python 2D绘图库，Matplotlib试图让简单的事情变得简单让困难的变为可能.只需几行代码即可生成绘图，直方图，功率谱，条形图，错误图，散点图等.可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包             &amp;gt; 这篇博文参考了matplotl">
 <meta name="keywords" content="python,可视化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="matplotlib入门">
 <meta property="og:url" content="https://www.ahbzzzh.cn/2019/01/29/matplotlib入门/index.html">
 <meta property="og:site_name" content="稍安勿躁zzh">
-<meta property="og:description" content="Matplotlib是一个Python 2D绘图库，Matplotlib试图让简单的事情变得简单让困难的变为可能.只需几行代码即可生成绘图，直方图，功率谱，条形图，错误图，散点图等.可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包              这篇博文参考了matplotli">
+<meta property="og:description" content="Matplotlib是一个Python 2D绘图库，Matplotlib试图让简单的事情变得简单让困难的变为可能.只需几行代码即可生成绘图，直方图，功率谱，条形图，错误图，散点图等.可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包             &amp;gt; 这篇博文参考了matplotl">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-01-31T12:01:18.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="matplotlib入门">
-<meta name="twitter:description" content="Matplotlib是一个Python 2D绘图库，Matplotlib试图让简单的事情变得简单让困难的变为可能.只需几行代码即可生成绘图，直方图，功率谱，条形图，错误图，散点图等.可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包              这篇博文参考了matplotli">
+<meta name="twitter:description" content="Matplotlib是一个Python 2D绘图库，Matplotlib试图让简单的事情变得简单让困难的变为可能.只需几行代码即可生成绘图，直方图，功率谱，条形图，错误图，散点图等.可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包             &amp;gt; 这篇博文参考了matplotl">
 
 
 
@@ -235,57 +231,6 @@
         
         
           
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
     
@@ -304,6 +249,9 @@
       
     </ul>
   
+
+  
+    
 
   
 
@@ -325,9 +273,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -353,7 +298,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzh">
       <meta itemprop="description" content="最怕一生碌碌无为，还说平凡难能可贵">
-      <meta itemprop="image" content="/images/toux.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -436,30 +381,11 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2019/01/29/matplotlib入门/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/29/matplotlib入门/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
           
 
           
@@ -473,7 +399,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">528</span>
+                <span title="本文字数"></span>
               
 
               
@@ -487,7 +413,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长"></span>
               
             </div>
           
@@ -508,27 +434,23 @@
 
       
         <div class="note success">
-            <p>Matplotlib是一个Python 2D绘图库，Matplotlib试图让简单的事情变得简单让困难的变为可能.只需几行代码即可生成绘图，直方图，功率谱，条形图，错误图，散点图等.可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包 </p>
+            Matplotlib是一个Python 2D绘图库，Matplotlib试图让简单的事情变得简单让困难的变为可能.只需几行代码即可生成绘图，直方图，功率谱，条形图，错误图，散点图等.可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包 
           </div>
-<blockquote>
-<p>这篇博文参考了matplotlib for python官方教程，根据个人用途对教程进行筛选学习，因为全部都看太浪费时间，并且matplotlib库对一般使用者来说不需要详细了解其源代码，熟练掌握使用就足够了</p>
-</blockquote>
-<p>以下贴出学习记录的链接：</p>
-<ol>
-<li><a href="https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.ipynb" target="_blank" rel="noopener">使用指南</a></li>
-<li><a href="https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Pyplot%20tutorial.ipynb" target="_blank" rel="noopener">Pyplot tutorial</a></li>
-<li><a href="https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Image%20tutorial.ipynb" target="_blank" rel="noopener">Image tutorial</a></li>
-<li><a href="https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Legend%20.ipynb" target="_blank" rel="noopener">Legend</a></li>
-<li><a href="https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E5%B8%83%E5%B1%80.ipynb" target="_blank" rel="noopener">自定义布局</a></li>
-<li><a href="https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Constrained%20Layout%20Guide.ipynb" target="_blank" rel="noopener">Constrained Layout Guide</a></li>
-<li><a href="https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Tight%20Layout%20guide.ipynb" target="_blank" rel="noopener">Tight Layout guide</a></li>
-<li><a href="https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Text%20in%20Matplotlib%20Plots.ipynb" target="_blank" rel="noopener">Text in Matplotlib Plots</a></li>
-</ol>
-<p>后续还会对教程进行温习修正，会逐渐加入更多的官方教程内容以及自己的用到的实例，拜拜~<br>参考：</p>
-<ul>
-<li><a href="https://matplotlib.org/tutorials/index.html#introductory" target="_blank" rel="noopener">https://matplotlib.org/tutorials/index.html#introductory</a></li>
-</ul>
+> 这篇博文参考了matplotlib for python官方教程，根据个人用途对教程进行筛选学习，因为全部都看太浪费时间，并且matplotlib库对一般使用者来说不需要详细了解其源代码，熟练掌握使用就足够了
 
+以下贴出学习记录的链接：
+1. [使用指南](https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.ipynb)
+2. [Pyplot tutorial](https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Pyplot%20tutorial.ipynb)
+3. [Image tutorial](https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Image%20tutorial.ipynb)
+4. [Legend](https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Legend%20.ipynb)
+5. [自定义布局](https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E5%B8%83%E5%B1%80.ipynb)
+6. [Constrained Layout Guide](https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Constrained%20Layout%20Guide.ipynb)
+7. [Tight Layout guide](https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Tight%20Layout%20guide.ipynb)
+8. [Text in Matplotlib Plots](https://nbviewer.jupyter.org/github/ZZH0908/Learning-notes/blob/master/matplotlib/Text%20in%20Matplotlib%20Plots.ipynb)
+
+后续还会对教程进行温习修正，会逐渐加入更多的官方教程内容以及自己的用到的实例，拜拜~
+参考：
+- [https://matplotlib.org/tutorials/index.html#introductory](https://matplotlib.org/tutorials/index.html#introductory)
       
     </div>
 
@@ -601,10 +523,6 @@
           
 
   
-    <div class="comments" id="comments">
-    </div>
-
-  
 
 
 
@@ -631,8 +549,6 @@
       <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/toux.jpg" alt="zzh">
             
               <p class="site-author-name" itemprop="name">zzh</p>
               <p class="site-description motion-element" itemprop="description">最怕一生碌碌无为，还说平凡难能可贵</p>
@@ -710,54 +626,6 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/ZZH0908" title="GitHub &rarr; https://github.com/ZZH0908" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:bzzzh@zjut.edu.cn" title="E-Mail &rarr; mailto:bzzzh@zjut.edu.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://cn.bing.com" title="Bing &rarr; https://cn.bing.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-bing"></i>Bing</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.baidu.com" title="Baidu &rarr; https://www.baidu.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-baidu"></i>Baidu</a>
-                </span>
-              
-            </div>
-          
 
           
 
@@ -798,7 +666,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">50k</span>
+    <span title="站点总字数"></span>
   
 
   
@@ -807,7 +675,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">45 分钟</span>
+    <span title="站点阅读时长"></span>
   
 </div>
 
@@ -820,38 +688,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -867,8 +709,6 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -899,8 +739,6 @@
 
 
 
-  
-
 
 
 
@@ -924,9 +762,6 @@
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
 
   
 
@@ -941,10 +776,7 @@
   
 
 
-  <script src="/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
-
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
 
 
 
@@ -962,35 +794,6 @@
 
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '2bkESrIhCMllXK8zFa7FIPJf-gzGzoHsz',
-    appKey: '3xXcRtuhKEfQyp2opnkOE9Ae',
-    placeholder: '我想变有钱......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-</script>
-
-
 
 
   
@@ -1011,13 +814,6 @@
   
 
   
-  
-
-  
-  
-
-  
-
 
   
 

@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,10 +40,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
-
 
 
 
@@ -58,7 +54,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon1.ico?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
 
 
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
@@ -76,10 +72,10 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '6.7.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -100,17 +96,18 @@
 
 
 
-  <meta name="keywords" content="目标检测,论文">
+  <meta name="description" content="![](https://i.imgur.com/vpuEROf.png)">
+<meta name="keywords" content="目标检测,论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="YOLO V2">
 <meta property="og:url" content="https://www.ahbzzzh.cn/2018/11/12/YOLO_V2/index.html">
 <meta property="og:site_name" content="稍安勿躁zzh">
+<meta property="og:description" content="![](https://i.imgur.com/vpuEROf.png)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.imgur.com/vpuEROf.png">
 <meta property="og:updated_time" content="2019-01-16T07:09:51.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="YOLO V2">
-<meta name="twitter:image" content="https://i.imgur.com/vpuEROf.png">
+<meta name="twitter:description" content="![](https://i.imgur.com/vpuEROf.png)">
 
 
 
@@ -234,57 +231,6 @@
         
         
           
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
     
@@ -303,6 +249,9 @@
       
     </ul>
   
+
+  
+    
 
   
 
@@ -324,9 +273,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -352,7 +298,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzh">
       <meta itemprop="description" content="最怕一生碌碌无为，还说平凡难能可贵">
-      <meta itemprop="image" content="/images/toux.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -435,30 +381,11 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2018/11/12/YOLO_V2/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/12/YOLO_V2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
           
 
           
@@ -472,7 +399,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.5k</span>
+                <span title="本文字数"></span>
               
 
               
@@ -486,7 +413,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长"></span>
               
             </div>
           
@@ -506,17 +433,28 @@
       
 
       
-        <p><img src="https://i.imgur.com/vpuEROf.png" alt=""><br><a id="more"></a></p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>&#160; &#160; &#160; &#160;YOLO V2是YOLO的改进版本，当时在PASCAL vov和COCO数据集上都取得了最好的效果。因为之前YOLO非常不擅长小目标检测导致最终结果不是最好的，而本文采用了多尺度的训练方法，使YOLO V2能够具有尺度不变性，很好的平衡了模型准确率和速度因素。在VOC 2007上的数据结果：</p>
-<blockquote>
-<p>76.8mAP         67FPS<br>78.6mAP          40FPS<br>检测结果超过了当时的Faster RCNN和SSD，而且模型速度仍然是非常快的</p>
-</blockquote>
-<p>&#160; &#160; &#160; &#160;V2使用了联合训练的方法，使得模型可以同时在COCO检测数据集和ImageNet分类数据集上进行训练，通过这个方法使得模型可以检测到数据集中没有标注的检测数据。在ImageNet检测任务中取得了19.7mAP，注意这仅仅是在只训练过其中44个类别的情况下取得的。在COCO中没有的另外156个类别上，取得了16.0mAP。YOLO V2还能够预测9000个不同的目标类别并且保持实时性。</p>
-<h2 id="创新改进"><a href="#创新改进" class="headerlink" title="创新改进"></a>创新改进</h2><p>&#160; &#160; &#160; &#160;之前的YOLO有着大量的定位错误，为了提高召回率rell和定位能力同时保持类别预测率，主要使用改进了以下方法：YOLO V2没有采用更大规模的网络，而是简化了网络结构，只是采用了一些网络结构优化技巧，比如：</p>
-<h3 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h3><p>在YOLO基础上加上BN获得了2%mAP的提升，使模型更容易收敛，可以去除正则项、dropout等操作</p>
-<h3 id="High-Resolution-Classifie"><a href="#High-Resolution-Classifie" class="headerlink" title="High Resolution Classifie"></a>High Resolution Classifie</h3><p>&#160; &#160; &#160; &#160;YOLO分类微调是在ImageNet预训练模型上进行的，使用的输入分辨率为224×224，然后用448×448的输入进行目标检测任务，模型不能很好的适应。解决办法是，直接利用大的448×448输入进行分类模型的微调，这样就不用再重新适应不同的分辨率了，此改进获得了4%的mAP提升</p>
-<h3 id="Convolutional-With-Anchor-Boxes"><a href="#Convolutional-With-Anchor-Boxes" class="headerlink" title="Convolutional With Anchor Boxes"></a>Convolutional With Anchor Boxes</h3><p>&#160; &#160; &#160; &#160;YOLO是直接用基于卷积特征的全连接层来预测bboxes的坐标的，但全连接层会破坏特征图对应原图目标的位置信息，因为要reshape嘛，在可视化文章<a href="https://arxiv.org/abs/1512.04150" target="_blank" rel="noopener">1</a> <a href="https://arxiv.org/abs/1610.02391" target="_blank" rel="noopener">2</a>中也提到全连接层会破坏感兴趣区域的位置。而FRCNN中的RPN网络直接基于卷积特征图利用单位卷积获得输出，很好的保存了位置信息。<br>&#160; &#160; &#160; &#160;作者的做法是，移除全连层，移除一个池化层以获得一个大分辨率的特征图。通过调整网络使得输入尺寸为416，目的是为了获得一个奇数的中心点以预测在中心的目标，而不是使用四个临近位置来预测中心物体，这样更精确也更简单化，因为大的目标通常出现在图像中心。类别预测部分是和空间位置是分开的，和YOLO中cell的原理不同的是对每个Anchor都预测类别以及是目标的置信度。cell原理对于每张图片仅仅预测了98个Anchor，而V2可以预测上千个。实验表明，使用Anchor的方法使得mAP微弱下降，但召回率确提升了很多。</p>
-<h3 id="Dimension-Clusters"><a href="#Dimension-Clusters" class="headerlink" title="Dimension Clusters"></a>Dimension Clusters</h3><p>&#160; &#160; &#160; &#160;RPN中的anchor boxes的长宽比例是经过先验知识人为设定的，作者采用了一种更好的方法来选取boxes信息，即在训练数据上使用K-均值聚类的方法以自动的得出更优的先验。</p>
+        ![](https://i.imgur.com/vpuEROf.png)
+<a id="more"></a>
+## 概述
+&#160; &#160; &#160; &#160;YOLO V2是YOLO的改进版本，当时在PASCAL vov和COCO数据集上都取得了最好的效果。因为之前YOLO非常不擅长小目标检测导致最终结果不是最好的，而本文采用了多尺度的训练方法，使YOLO V2能够具有尺度不变性，很好的平衡了模型准确率和速度因素。在VOC 2007上的数据结果：
+>76.8mAP         67FPS
+78.6mAP          40FPS
+检测结果超过了当时的Faster RCNN和SSD，而且模型速度仍然是非常快的
+
+&#160; &#160; &#160; &#160;V2使用了联合训练的方法，使得模型可以同时在COCO检测数据集和ImageNet分类数据集上进行训练，通过这个方法使得模型可以检测到数据集中没有标注的检测数据。在ImageNet检测任务中取得了19.7mAP，注意这仅仅是在只训练过其中44个类别的情况下取得的。在COCO中没有的另外156个类别上，取得了16.0mAP。YOLO V2还能够预测9000个不同的目标类别并且保持实时性。
+
+## 创新改进
+&#160; &#160; &#160; &#160;之前的YOLO有着大量的定位错误，为了提高召回率rell和定位能力同时保持类别预测率，主要使用改进了以下方法：YOLO V2没有采用更大规模的网络，而是简化了网络结构，只是采用了一些网络结构优化技巧，比如：
+### Batch Normalization
+在YOLO基础上加上BN获得了2%mAP的提升，使模型更容易收敛，可以去除正则项、dropout等操作
+### High Resolution Classifie
+&#160; &#160; &#160; &#160;YOLO分类微调是在ImageNet预训练模型上进行的，使用的输入分辨率为224×224，然后用448×448的输入进行目标检测任务，模型不能很好的适应。解决办法是，直接利用大的448×448输入进行分类模型的微调，这样就不用再重新适应不同的分辨率了，此改进获得了4%的mAP提升
+### Convolutional With Anchor Boxes
+&#160; &#160; &#160; &#160;YOLO是直接用基于卷积特征的全连接层来预测bboxes的坐标的，但全连接层会破坏特征图对应原图目标的位置信息，因为要reshape嘛，在可视化文章[1](https://arxiv.org/abs/1512.04150) [2](https://arxiv.org/abs/1610.02391)中也提到全连接层会破坏感兴趣区域的位置。而FRCNN中的RPN网络直接基于卷积特征图利用单位卷积获得输出，很好的保存了位置信息。
+&#160; &#160; &#160; &#160;作者的做法是，移除全连层，移除一个池化层以获得一个大分辨率的特征图。通过调整网络使得输入尺寸为416，目的是为了获得一个奇数的中心点以预测在中心的目标，而不是使用四个临近位置来预测中心物体，这样更精确也更简单化，因为大的目标通常出现在图像中心。类别预测部分是和空间位置是分开的，和YOLO中cell的原理不同的是对每个Anchor都预测类别以及是目标的置信度。cell原理对于每张图片仅仅预测了98个Anchor，而V2可以预测上千个。实验表明，使用Anchor的方法使得mAP微弱下降，但召回率确提升了很多。
+### Dimension Clusters
+&#160; &#160; &#160; &#160;RPN中的anchor boxes的长宽比例是经过先验知识人为设定的，作者采用了一种更好的方法来选取boxes信息，即在训练数据上使用K-均值聚类的方法以自动的得出更优的先验。
+
 
       
     </div>
@@ -586,10 +524,6 @@
           
 
   
-    <div class="comments" id="comments">
-    </div>
-
-  
 
 
 
@@ -612,21 +546,10 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/toux.jpg" alt="zzh">
             
               <p class="site-author-name" itemprop="name">zzh</p>
               <p class="site-description motion-element" itemprop="description">最怕一生碌碌无为，还说平凡难能可贵</p>
@@ -704,54 +627,6 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/ZZH0908" title="GitHub &rarr; https://github.com/ZZH0908" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:bzzzh@zjut.edu.cn" title="E-Mail &rarr; mailto:bzzzh@zjut.edu.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://cn.bing.com" title="Bing &rarr; https://cn.bing.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-bing"></i>Bing</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.baidu.com" title="Baidu &rarr; https://www.baidu.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-baidu"></i>Baidu</a>
-                </span>
-              
-            </div>
-          
 
           
 
@@ -766,23 +641,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创新改进"><span class="nav-number">2.</span> <span class="nav-text">创新改进</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Batch-Normalization"><span class="nav-number">2.1.</span> <span class="nav-text">Batch Normalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#High-Resolution-Classifie"><span class="nav-number">2.2.</span> <span class="nav-text">High Resolution Classifie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convolutional-With-Anchor-Boxes"><span class="nav-number">2.3.</span> <span class="nav-text">Convolutional With Anchor Boxes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dimension-Clusters"><span class="nav-number">2.4.</span> <span class="nav-text">Dimension Clusters</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -809,7 +667,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">50k</span>
+    <span title="站点总字数"></span>
   
 
   
@@ -818,7 +676,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">45 分钟</span>
+    <span title="站点阅读时长"></span>
   
 </div>
 
@@ -831,38 +689,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -878,8 +710,6 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -910,8 +740,6 @@
 
 
 
-  
-
 
 
 
@@ -935,9 +763,6 @@
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
 
   
 
@@ -952,10 +777,7 @@
   
 
 
-  <script src="/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
-
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
 
 
 
@@ -973,35 +795,6 @@
 
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '2bkESrIhCMllXK8zFa7FIPJf-gzGzoHsz',
-    appKey: '3xXcRtuhKEfQyp2opnkOE9Ae',
-    placeholder: '我想变有钱......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-</script>
-
-
 
 
   
@@ -1022,13 +815,6 @@
   
 
   
-  
-
-  
-  
-
-  
-
 
   
 

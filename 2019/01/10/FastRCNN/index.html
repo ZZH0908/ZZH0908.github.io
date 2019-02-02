@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,10 +40,6 @@
 
 
 
-  
-  
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5">
-
 
 
 
@@ -58,7 +54,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon1.ico?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
 
 
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
@@ -76,10 +72,10 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Muse',
     version: '6.7.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -100,24 +96,18 @@
 
 
 
-  <meta name="description" content="Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度.             概述目标探测算法有两个主要挑战：1.图像需要进行预处理来提取大量的候选区；2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是相互抵触的！  RC">
+  <meta name="description" content="Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度.             ## 概述 **目标探测算法有两个主要挑战：** 1.图像需要进行预处理来提取大量的候选区； 2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是">
 <meta name="keywords" content="目标检测,论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FastRCNN">
 <meta property="og:url" content="https://www.ahbzzzh.cn/2019/01/10/FastRCNN/index.html">
 <meta property="og:site_name" content="稍安勿躁zzh">
-<meta property="og:description" content="Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度.             概述目标探测算法有两个主要挑战：1.图像需要进行预处理来提取大量的候选区；2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是相互抵触的！  RC">
+<meta property="og:description" content="Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度.             ## 概述 **目标探测算法有两个主要挑战：** 1.图像需要进行预处理来提取大量的候选区； 2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.imgur.com/498LEga.png">
-<meta property="og:image" content="https://i.imgur.com/r0nxtk2.png">
-<meta property="og:image" content="https://i.imgur.com/lqB6Zwk.png">
-<meta property="og:image" content="https://i.imgur.com/AwhqZ8v.png">
-<meta property="og:image" content="https://i.imgur.com/F1LAaHy.png">
 <meta property="og:updated_time" content="2019-01-29T01:14:21.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FastRCNN">
-<meta name="twitter:description" content="Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度.             概述目标探测算法有两个主要挑战：1.图像需要进行预处理来提取大量的候选区；2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是相互抵触的！  RC">
-<meta name="twitter:image" content="https://i.imgur.com/498LEga.png">
+<meta name="twitter:description" content="Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度.             ## 概述 **目标探测算法有两个主要挑战：** 1.图像需要进行预处理来提取大量的候选区； 2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是">
 
 
 
@@ -241,57 +231,6 @@
         
         
           
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-tags">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-categories">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-archives">
 
     
@@ -310,6 +249,9 @@
       
     </ul>
   
+
+  
+    
 
   
 
@@ -331,9 +273,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -359,7 +298,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzh">
       <meta itemprop="description" content="最怕一生碌碌无为，还说平凡难能可贵">
-      <meta itemprop="image" content="/images/toux.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -442,30 +381,11 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <a href="/2019/01/10/FastRCNN/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/10/FastRCNN/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
           
 
-          
-            <span class="post-meta-divider">|</span>
-            <span class="post-meta-item-icon">
-            <i class="fa fa-eye"></i>
-             阅读次数： 
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
           
 
           
@@ -479,7 +399,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2k</span>
+                <span title="本文字数"></span>
               
 
               
@@ -493,7 +413,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长"></span>
               
             </div>
           
@@ -514,28 +434,52 @@
 
       
         <div class="note success">
-            <p>Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度. </p>
+            Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度. 
           </div>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>目标探测算法有两个主要挑战：</strong><br>1.图像需要进行预处理来提取大量的候选区；<br>2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是相互抵触的！</p>
-<blockquote>
-<p>RCNN、SPPnet都需要多阶段训练微调、占用空间大、训练和测试速度慢等缺点，SPPnet还无法更新spp层之前卷积层的参数，对模型有所限制，而Fast RCNN就解决了以上问题<br><strong>本文的主要贡献</strong><br><img src="https://i.imgur.com/498LEga.png" alt=""></p>
-</blockquote>
-<h2 id="FastR-CNNarchitectureandtraining"><a href="#FastR-CNNarchitectureandtraining" class="headerlink" title="FastR-CNNarchitectureandtraining"></a>FastR-CNNarchitectureandtraining</h2><p>整体结构图<br><img src="https://i.imgur.com/r0nxtk2.png" alt=""><br>&#160; &#160; &#160; &#160;先对整张图片进行特征提取，然后对某个特征图上的候选框特征进行ROI层操作处理成固定长度的向量，然后接入全连接层，最后全连接层输入分为两个分支：一个是类别概率分布(包括背景类别)，另一个对每个类别都产生四个预测值，进行回归调整，对应bbox信息.</p>
-<h3 id="TheRoIpoolinglayer"><a href="#TheRoIpoolinglayer" class="headerlink" title="TheRoIpoolinglayer"></a>TheRoIpoolinglayer</h3><p>&#160; &#160; &#160; &#160;和SPPnet的空间金字塔池化操作一样，只不过这里只有一个level</p>
-<h3 id="较高的训练效率"><a href="#较高的训练效率" class="headerlink" title="较高的训练效率"></a>较高的训练效率</h3><p>&#160; &#160; &#160; &#160;SPPnet有一个缺点是无法更新或者说无法有效的对SPP之前的卷积层参数，分析原因：ROI所对应的感受野都有一个很大的感受野，占据整个图像大部分区域，再者，每个ROI采样自不同的图像样本，这样不能共享计算；而FastRCNN的采用模式为先对图像进行采样，再对这些图像采样ROI，所以每个minibatch都是固定的几张图像，可以共享计算和内存.</p>
-<h3 id="Multi-task-loss"><a href="#Multi-task-loss" class="headerlink" title="Multi-task loss."></a>Multi-task loss.</h3><p>&#160; &#160; &#160; &#160;多任务损失，第一个分支输出为ROI的类别概率分布<script type="math/tex">p=\left ( p_{0},....,p_{K} \right )</script>，另一个输出分支为bbox回归的offsets偏移量<script type="math/tex">t^{k}=\left \{ t_{x}^{k},t_{y}^{k},t_{w}^{k},t_{y}^{k} \right \}</script>，联合损失函数L如下:</p>
-<script type="math/tex; mode=display">L\left ( p,u,t^{u},v \right )=L_{cls}\left ( p,u \right )+\lambda [u\geqslant 1]L_{loc}\left ( t^{u},v \right )</script><p>其中，[]是一个指示函数，用于控制只有目标才进行位置回归，背景类别就不需要进行位置回归。λ是超参数，用于控制均衡.u、v为标签(回归目标v是被处理成0均值和单位方差).回归loss公式为：</p>
-<script type="math/tex; mode=display">L_{loc}\left ( t^{u},v \right )=\underset{i\in \left \{ x,y,w,h \right \} }{\sum }smooth_{L_{1}}\left ( t_{i}^{u}-v_{i} \right )</script><p>进一步：</p>
-<script type="math/tex; mode=display">smooth_{L_{1}}\left ( x \right )=\left\{\begin{matrix}
+## 概述
+**目标探测算法有两个主要挑战：**
+1.图像需要进行预处理来提取大量的候选区；
+2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是相互抵触的！
+> RCNN、SPPnet都需要多阶段训练微调、占用空间大、训练和测试速度慢等缺点，SPPnet还无法更新spp层之前卷积层的参数，对模型有所限制，而Fast RCNN就解决了以上问题
+> **本文的主要贡献**
+> ![](https://i.imgur.com/498LEga.png)
+
+## FastR-CNNarchitectureandtraining
+整体结构图
+![](https://i.imgur.com/r0nxtk2.png)
+&#160; &#160; &#160; &#160;先对整张图片进行特征提取，然后对某个特征图上的候选框特征进行ROI层操作处理成固定长度的向量，然后接入全连接层，最后全连接层输入分为两个分支：一个是类别概率分布(包括背景类别)，另一个对每个类别都产生四个预测值，进行回归调整，对应bbox信息.
+### TheRoIpoolinglayer 
+&#160; &#160; &#160; &#160;和SPPnet的空间金字塔池化操作一样，只不过这里只有一个level
+### 较高的训练效率
+&#160; &#160; &#160; &#160;SPPnet有一个缺点是无法更新或者说无法有效的对SPP之前的卷积层参数，分析原因：ROI所对应的感受野都有一个很大的感受野，占据整个图像大部分区域，再者，每个ROI采样自不同的图像样本，这样不能共享计算；而FastRCNN的采用模式为先对图像进行采样，再对这些图像采样ROI，所以每个minibatch都是固定的几张图像，可以共享计算和内存.
+### Multi-task loss.
+&#160; &#160; &#160; &#160;多任务损失，第一个分支输出为ROI的类别概率分布$$p=\left ( p_{0},....,p_{K} \right )$$，另一个输出分支为bbox回归的offsets偏移量$$t^{k}=\left \{ t_{x}^{k},t_{y}^{k},t_{w}^{k},t_{y}^{k} \right \}$$，联合损失函数L如下:
+$$L\left ( p,u,t^{u},v \right )=L_{cls}\left ( p,u \right )+\lambda [u\geqslant 1]L_{loc}\left ( t^{u},v \right )$$
+其中，[]是一个指示函数，用于控制只有目标才进行位置回归，背景类别就不需要进行位置回归。λ是超参数，用于控制均衡.u、v为标签(回归目标v是被处理成0均值和单位方差).回归loss公式为：
+$$L_{loc}\left ( t^{u},v \right )=\underset{i\in \left \{ x,y,w,h \right \} }{\sum }smooth_{L_{1}}\left ( t_{i}^{u}-v_{i} \right )$$
+进一步：
+$$smooth_{L_{1}}\left ( x \right )=\left\{\begin{matrix}
 &0.5x^{2}  &if|x|< 1 \\ 
 &|x|-0.5  &otherwise 
-\end{matrix}\right.</script><p>&#160; &#160; &#160; &#160;与L2 loss相比L1对异常值更鲁棒是因为，当预测值和真实值相差较大时，可以防止梯度爆炸，画图即可得知<br><img src="https://i.imgur.com/lqB6Zwk.png" alt=""></p>
-<h3 id="RoI池化层的反向传播"><a href="#RoI池化层的反向传播" class="headerlink" title="RoI池化层的反向传播"></a>RoI池化层的反向传播</h3><p>RoI pooling层的反向传播计算公式：<br><img src="https://i.imgur.com/AwhqZ8v.png" alt=""><br>&#160; &#160; &#160; &#160;激活单元会出现重叠像素的情况即ROI重叠，只对最大值进行求偏导，并且偏导是被累积的.还有超参数设置和Scale invariance、Mini-batch sampling等不作详述.</p>
-<h2 id="detection"><a href="#detection" class="headerlink" title="detection"></a>detection</h2><p>&#160; &#160; &#160; &#160;网络与一张图像和一些候选对象区域(selective search)作为输入，对每个ROI产生两个分支输出，还设置了一个概率估计来衡量其为一个类别的置信度，然后进行NMS处理.</p>
-<h3 id="Truncated-SVD-for-faster-detection"><a href="#Truncated-SVD-for-faster-detection" class="headerlink" title="Truncated SVD for faster detection"></a>Truncated SVD for faster detection</h3><p>&#160; &#160; &#160; &#160;对于普通的分类网络，全连接层的计算用时不及卷积层的计算，但是针对object detection，Fast RCNN在ROI pooling后每个region proposal(数量太多)都要经过几个全连接层，使得全连接层计算耗时太长，如下图，所以作者采用SVD来简化全连接层的计算，SVD在图像压缩上有应用.<br><img src="https://i.imgur.com/F1LAaHy.png" alt=""></p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://arxiv.org/abs/1504.08083" target="_blank" rel="noopener">Fast R-CNN</a></li>
-</ul>
+\end{matrix}\right.$$
+&#160; &#160; &#160; &#160;与L2 loss相比L1对异常值更鲁棒是因为，当预测值和真实值相差较大时，可以防止梯度爆炸，画图即可得知
+![](https://i.imgur.com/lqB6Zwk.png)
+### RoI池化层的反向传播
+RoI pooling层的反向传播计算公式：
+![](https://i.imgur.com/AwhqZ8v.png)
+&#160; &#160; &#160; &#160;激活单元会出现重叠像素的情况即ROI重叠，只对最大值进行求偏导，并且偏导是被累积的.还有超参数设置和Scale invariance、Mini-batch sampling等不作详述.
+## detection
+&#160; &#160; &#160; &#160;网络与一张图像和一些候选对象区域(selective search)作为输入，对每个ROI产生两个分支输出，还设置了一个概率估计来衡量其为一个类别的置信度，然后进行NMS处理.
+### Truncated SVD for faster detection
+&#160; &#160; &#160; &#160;对于普通的分类网络，全连接层的计算用时不及卷积层的计算，但是针对object detection，Fast RCNN在ROI pooling后每个region proposal(数量太多)都要经过几个全连接层，使得全连接层计算耗时太长，如下图，所以作者采用SVD来简化全连接层的计算，SVD在图像压缩上有应用.
+![](https://i.imgur.com/F1LAaHy.png)
+## 参考文献
+- [Fast R-CNN](https://arxiv.org/abs/1504.08083)
+
+
+
+
+
 
       
     </div>
@@ -609,10 +553,6 @@
           
 
   
-    <div class="comments" id="comments">
-    </div>
-
-  
 
 
 
@@ -635,21 +575,10 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/toux.jpg" alt="zzh">
             
               <p class="site-author-name" itemprop="name">zzh</p>
               <p class="site-description motion-element" itemprop="description">最怕一生碌碌无为，还说平凡难能可贵</p>
@@ -727,54 +656,6 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/ZZH0908" title="GitHub &rarr; https://github.com/ZZH0908" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="mailto:bzzzh@zjut.edu.cn" title="E-Mail &rarr; mailto:bzzzh@zjut.edu.cn" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://cn.bing.com" title="Bing &rarr; https://cn.bing.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-bing"></i>Bing</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.baidu.com" title="Baidu &rarr; https://www.baidu.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-baidu"></i>Baidu</a>
-                </span>
-              
-            </div>
-          
 
           
 
@@ -789,23 +670,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastR-CNNarchitectureandtraining"><span class="nav-number">2.</span> <span class="nav-text">FastR-CNNarchitectureandtraining</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TheRoIpoolinglayer"><span class="nav-number">2.1.</span> <span class="nav-text">TheRoIpoolinglayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#较高的训练效率"><span class="nav-number">2.2.</span> <span class="nav-text">较高的训练效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-task-loss"><span class="nav-number">2.3.</span> <span class="nav-text">Multi-task loss.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RoI池化层的反向传播"><span class="nav-number">2.4.</span> <span class="nav-text">RoI池化层的反向传播</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#detection"><span class="nav-number">3.</span> <span class="nav-text">detection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Truncated-SVD-for-faster-detection"><span class="nav-number">3.1.</span> <span class="nav-text">Truncated SVD for faster detection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -832,7 +696,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">50k</span>
+    <span title="站点总字数"></span>
   
 
   
@@ -841,7 +705,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">45 分钟</span>
+    <span title="站点阅读时长"></span>
   
 </div>
 
@@ -854,38 +718,12 @@
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
 
 
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="总访客量">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-
-  
-    <span class="post-meta-divider">|</span>
-  
-
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="总访问量">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
-
 
 
 
@@ -901,8 +739,6 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
-        
-          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -933,8 +769,6 @@
 
 
 
-  
-
 
 
 
@@ -958,9 +792,6 @@
   
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
 
   
 
@@ -975,10 +806,7 @@
   
 
 
-  <script src="/js/src/affix.js?v=6.7.0"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
-
+  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
 
 
 
@@ -996,35 +824,6 @@
 
 
   
-  
-
-<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-
-
-
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-<script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: false,
-    notify: false,
-    appId: '2bkESrIhCMllXK8zFa7FIPJf-gzGzoHsz',
-    appKey: '3xXcRtuhKEfQyp2opnkOE9Ae',
-    placeholder: '我想变有钱......',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-</script>
-
-
 
 
   
@@ -1045,50 +844,6 @@
   
 
   
-  
-
-  
-  
-
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow: auto hidden;
-}
-</style>
-
-    
-  
-
 
   
 
