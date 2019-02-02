@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,7 +72,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -96,18 +96,21 @@
 
 
 
-  <meta name="description" content="&amp;gt; 候选区域计算一直是目标检测算法的瓶颈，FasterRCNN提出RPN网络，能够在共享卷积特征上预测region proposals，并且只付出微小的计算代价，结构上利用卷积操作代替全连接层添加额外的层同时预测每个位置的目标边界和目标置信度.RPN网络是端到端的网络，能够产生少量(仅仅300个)但高质量的region proposals，进一步将RPN和Fast RCNN结合为共享卷积层特征的单">
+  <meta name="description" content="候选区域计算一直是目标检测算法的瓶颈，FasterRCNN提出RPN网络，能够在共享卷积特征上预测region proposals，并且只付出微小的计算代价，结构上利用卷积操作代替全连接层添加额外的层同时预测每个位置的目标边界和目标置信度.RPN网络是端到端的网络，能够产生少量(仅仅300个)但高质量的region proposals，进一步将RPN和Fast RCNN结合为共享卷积层特征的单个">
 <meta name="keywords" content="目标检测,论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Faster-RCNN">
 <meta property="og:url" content="https://www.ahbzzzh.cn/2019/01/11/Faster-RCNN/index.html">
 <meta property="og:site_name" content="稍安勿躁zzh">
-<meta property="og:description" content="&amp;gt; 候选区域计算一直是目标检测算法的瓶颈，FasterRCNN提出RPN网络，能够在共享卷积特征上预测region proposals，并且只付出微小的计算代价，结构上利用卷积操作代替全连接层添加额外的层同时预测每个位置的目标边界和目标置信度.RPN网络是端到端的网络，能够产生少量(仅仅300个)但高质量的region proposals，进一步将RPN和Fast RCNN结合为共享卷积层特征的单">
+<meta property="og:description" content="候选区域计算一直是目标检测算法的瓶颈，FasterRCNN提出RPN网络，能够在共享卷积特征上预测region proposals，并且只付出微小的计算代价，结构上利用卷积操作代替全连接层添加额外的层同时预测每个位置的目标边界和目标置信度.RPN网络是端到端的网络，能够产生少量(仅仅300个)但高质量的region proposals，进一步将RPN和Fast RCNN结合为共享卷积层特征的单个">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.imgur.com/34pK7vB.png">
+<meta property="og:image" content="https://i.imgur.com/BREyQXY.png">
 <meta property="og:updated_time" content="2019-01-28T03:25:43.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Faster-RCNN">
-<meta name="twitter:description" content="&amp;gt; 候选区域计算一直是目标检测算法的瓶颈，FasterRCNN提出RPN网络，能够在共享卷积特征上预测region proposals，并且只付出微小的计算代价，结构上利用卷积操作代替全连接层添加额外的层同时预测每个位置的目标边界和目标置信度.RPN网络是端到端的网络，能够产生少量(仅仅300个)但高质量的region proposals，进一步将RPN和Fast RCNN结合为共享卷积层特征的单">
+<meta name="twitter:description" content="候选区域计算一直是目标检测算法的瓶颈，FasterRCNN提出RPN网络，能够在共享卷积特征上预测region proposals，并且只付出微小的计算代价，结构上利用卷积操作代替全连接层添加额外的层同时预测每个位置的目标边界和目标置信度.RPN网络是端到端的网络，能够产生少量(仅仅300个)但高质量的region proposals，进一步将RPN和Fast RCNN结合为共享卷积层特征的单个">
+<meta name="twitter:image" content="https://i.imgur.com/34pK7vB.png">
 
 
 
@@ -251,9 +254,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -273,6 +273,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -399,7 +402,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数"></span>
+                <span title="本文字数">2k</span>
               
 
               
@@ -413,7 +416,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长"></span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -433,36 +436,26 @@
       
 
       
-        > 候选区域计算一直是目标检测算法的瓶颈，FasterRCNN提出RPN网络，能够在共享卷积特征上预测region proposals，并且只付出微小的计算代价，结构上利用卷积操作代替全连接层添加额外的层同时预测每个位置的目标边界和目标置信度.RPN网络是端到端的网络，能够产生少量(仅仅300个)但高质量的region proposals，进一步将RPN和Fast RCNN结合为共享卷积层特征的单个网络.
-
-## FASTER R-CNN
-整体结构
-![](https://i.imgur.com/34pK7vB.png)
-### Region Proposal Networks
-RPN网络是基于最后一层卷积特征的也就是共享特征，这里不做介绍直接贴出RPN网络的关键结构图.
-![](https://i.imgur.com/BREyQXY.png)
-&#160; &#160; &#160; &#160;如图所示，RPN网络也是以共享的卷积特征为基础，利用滑窗的方式(3×3卷积)随后紧跟着单位卷积得到两个分支输出；这里还要说一下anchor的概念，每一个anchor都以滑动窗口为中心，anchor是借鉴了金字塔的思想，默认使用三种尺度和三种比例一共可以得到9种不同的.代码示例：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rpn</span><span class="params">(base_layers, num_anchors)</span>:</span></span><br><span class="line"></span><br><span class="line">    x = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, activation=<span class="string">'relu'</span>, kernel_initializer=<span class="string">'normal'</span>, name=<span class="string">'rpn_conv1'</span>)(base_layers)</span><br><span class="line"></span><br><span class="line">    x_class = Conv2D(num_anchors, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">'sigmoid'</span>, kernel_initializer=<span class="string">'uniform'</span>, name=<span class="string">'rpn_out_class'</span>)(x)</span><br><span class="line">    x_regr = Conv2D(num_anchors * <span class="number">4</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">'linear'</span>, kernel_initializer=<span class="string">'zero'</span>, name=<span class="string">'rpn_out_regress'</span>)(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [x_class, x_regr, base_layers]</span><br></pre></td></tr></table></figure>
-
-> anchors的思想方法使得网络具有translation invariant并使用很少的参数，也使得网络不需要多尺度输入和多尺度滤波器就能很好的学习并输出高质量的候选区.
-
-### Loss Function
-公式：
-$$L\left ( \left \{ p_{i} \right \},\left \{ t_{i} \right \} \right )=\frac{1}{N_{cls}}\underset{i}{\sum }L_{cls}\left ( p_{i},p_{i}^{\star } \right )+\lambda \frac{1}{N_{reg}}\underset{i}{\sum }p_{i}^{\star }L_{reg}\left ( t_{i},t_{i}^{\star } \right )$$
-第一项预测anchor是否为一个目标，第二项则是smooth L1函数用于回归.
-## Sharing Features for RPN and Fast R-CNN
-学习一个统一网络
-1. Alternating training
-首先训练RPN网络，然后利用RPN的输出proposals来训练Fast RCNN；再用，Fast RCNN网络来初始化RPN，一次迭代.
-
-2. Approximate joint training
-两个网络被合并为一个网络进行训练，前向计算产生的region proposals被视为固定的来训练Fast RCNN网络；BP算法和平常一样，RPN loss和Fast RCNN loss组合进行优化；但这忽视了proposals boxe位置的导数；反正我没读懂~~~~
-
-3. Non-approximate joint training
-需要RoI池化层对区域建议可微，需要RoI变形层实现，作者也没详细说明.最终采样了第一种训练方法，通过4步训练算法，交替优化学习至共享特征：第一步，先对RPN网络进行训练(使用预训练网络然后进行端到端的微调)；第二步，利用第一步RPN产生的proposals训练Fast R-CNN；第三步，用Fast R-CNN来初始化RPN，固定卷积层，仅仅微调RPN特殊的层；第四步，此时已经共享了卷积层，再微调Fast R-CNN的特殊层.
-
-&#160; &#160; &#160; &#160;这里说下anchor数量，对于一张1000×600的图像，在得到的特征图中会有大约20000个anchor，忽略掉超出边界的，还剩大约6000个，在经过NMS(阈值为0.7)非最大抑制处理后还剩大约2000个anchor.
-
+        <blockquote>
+<p>候选区域计算一直是目标检测算法的瓶颈，FasterRCNN提出RPN网络，能够在共享卷积特征上预测region proposals，并且只付出微小的计算代价，结构上利用卷积操作代替全连接层添加额外的层同时预测每个位置的目标边界和目标置信度.RPN网络是端到端的网络，能够产生少量(仅仅300个)但高质量的region proposals，进一步将RPN和Fast RCNN结合为共享卷积层特征的单个网络.</p>
+</blockquote>
+<h2 id="FASTER-R-CNN"><a href="#FASTER-R-CNN" class="headerlink" title="FASTER R-CNN"></a>FASTER R-CNN</h2><p>整体结构<br><img src="https://i.imgur.com/34pK7vB.png" alt=""></p>
+<h3 id="Region-Proposal-Networks"><a href="#Region-Proposal-Networks" class="headerlink" title="Region Proposal Networks"></a>Region Proposal Networks</h3><p>RPN网络是基于最后一层卷积特征的也就是共享特征，这里不做介绍直接贴出RPN网络的关键结构图.<br><img src="https://i.imgur.com/BREyQXY.png" alt=""><br>&#160; &#160; &#160; &#160;如图所示，RPN网络也是以共享的卷积特征为基础，利用滑窗的方式(3×3卷积)随后紧跟着单位卷积得到两个分支输出；这里还要说一下anchor的概念，每一个anchor都以滑动窗口为中心，anchor是借鉴了金字塔的思想，默认使用三种尺度和三种比例一共可以得到9种不同的.代码示例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rpn</span><span class="params">(base_layers, num_anchors)</span>:</span></span><br><span class="line"></span><br><span class="line">    x = Conv2D(<span class="number">512</span>, (<span class="number">3</span>, <span class="number">3</span>), padding=<span class="string">'same'</span>, activation=<span class="string">'relu'</span>, kernel_initializer=<span class="string">'normal'</span>, name=<span class="string">'rpn_conv1'</span>)(base_layers)</span><br><span class="line"></span><br><span class="line">    x_class = Conv2D(num_anchors, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">'sigmoid'</span>, kernel_initializer=<span class="string">'uniform'</span>, name=<span class="string">'rpn_out_class'</span>)(x)</span><br><span class="line">    x_regr = Conv2D(num_anchors * <span class="number">4</span>, (<span class="number">1</span>, <span class="number">1</span>), activation=<span class="string">'linear'</span>, kernel_initializer=<span class="string">'zero'</span>, name=<span class="string">'rpn_out_regress'</span>)(x)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [x_class, x_regr, base_layers]</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>anchors的思想方法使得网络具有translation invariant并使用很少的参数，也使得网络不需要多尺度输入和多尺度滤波器就能很好的学习并输出高质量的候选区.</p>
+</blockquote>
+<h3 id="Loss-Function"><a href="#Loss-Function" class="headerlink" title="Loss Function"></a>Loss Function</h3><p>公式：</p>
+<script type="math/tex; mode=display">L\left ( \left \{ p_{i} \right \},\left \{ t_{i} \right \} \right )=\frac{1}{N_{cls}}\underset{i}{\sum }L_{cls}\left ( p_{i},p_{i}^{\star } \right )+\lambda \frac{1}{N_{reg}}\underset{i}{\sum }p_{i}^{\star }L_{reg}\left ( t_{i},t_{i}^{\star } \right )</script><p>第一项预测anchor是否为一个目标，第二项则是smooth L1函数用于回归.</p>
+<h2 id="Sharing-Features-for-RPN-and-Fast-R-CNN"><a href="#Sharing-Features-for-RPN-and-Fast-R-CNN" class="headerlink" title="Sharing Features for RPN and Fast R-CNN"></a>Sharing Features for RPN and Fast R-CNN</h2><p>学习一个统一网络</p>
+<ol>
+<li><p>Alternating training<br>首先训练RPN网络，然后利用RPN的输出proposals来训练Fast RCNN；再用，Fast RCNN网络来初始化RPN，一次迭代.</p>
+</li>
+<li><p>Approximate joint training<br>两个网络被合并为一个网络进行训练，前向计算产生的region proposals被视为固定的来训练Fast RCNN网络；BP算法和平常一样，RPN loss和Fast RCNN loss组合进行优化；但这忽视了proposals boxe位置的导数；反正我没读懂~~~~</p>
+</li>
+<li><p>Non-approximate joint training<br>需要RoI池化层对区域建议可微，需要RoI变形层实现，作者也没详细说明.最终采样了第一种训练方法，通过4步训练算法，交替优化学习至共享特征：第一步，先对RPN网络进行训练(使用预训练网络然后进行端到端的微调)；第二步，利用第一步RPN产生的proposals训练Fast R-CNN；第三步，用Fast R-CNN来初始化RPN，固定卷积层，仅仅微调RPN特殊的层；第四步，此时已经共享了卷积层，再微调Fast R-CNN的特殊层.</p>
+</li>
+</ol>
+<p>&#160; &#160; &#160; &#160;这里说下anchor数量，对于一张1000×600的图像，在得到的特征图中会有大约20000个anchor，忽略掉超出边界的，还剩大约6000个，在经过NMS(阈值为0.7)非最大抑制处理后还剩大约2000个anchor.</p>
 
       
     </div>
@@ -558,8 +551,17 @@ $$L\left ( \left \{ p_{i} \right \},\left \{ t_{i} \right \} \right )=\frac{1}{N
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -654,6 +656,23 @@ $$L\left ( \left \{ p_{i} \right \},\left \{ t_{i} \right \} \right )=\frac{1}{N
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FASTER-R-CNN"><span class="nav-number">1.</span> <span class="nav-text">FASTER R-CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Region-Proposal-Networks"><span class="nav-number">1.1.</span> <span class="nav-text">Region Proposal Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss-Function"><span class="nav-number">1.2.</span> <span class="nav-text">Loss Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sharing-Features-for-RPN-and-Fast-R-CNN"><span class="nav-number">2.</span> <span class="nav-text">Sharing Features for RPN and Fast R-CNN</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -679,7 +698,7 @@ $$L\left ( \left \{ p_{i} \right \},\left \{ t_{i} \right \} \right )=\frac{1}{N
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数"></span>
+    <span title="站点总字数">50k</span>
   
 
   
@@ -688,7 +707,7 @@ $$L\left ( \left \{ p_{i} \right \},\left \{ t_{i} \right \} \right )=\frac{1}{N
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长"></span>
+    <span title="站点阅读时长">45 分钟</span>
   
 </div>
 
@@ -701,7 +720,7 @@ $$L\left ( \left \{ p_{i} \right \},\left \{ t_{i} \right \} \right )=\frac{1}{N
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
 
 
 
@@ -789,7 +808,10 @@ $$L\left ( \left \{ p_{i} \right \},\left \{ t_{i} \right \} \right )=\frac{1}{N
   
 
 
-  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
 
 
 

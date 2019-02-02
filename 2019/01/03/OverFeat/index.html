@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -72,7 +72,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '6.7.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -96,18 +96,23 @@
 
 
 
-  <meta name="description" content="![](https://i.imgur.com/ETYex2l.png)">
-<meta name="keywords" content="目标检测,论文">
+  <meta name="keywords" content="目标检测,论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OverFeat">
 <meta property="og:url" content="https://www.ahbzzzh.cn/2019/01/03/OverFeat/index.html">
 <meta property="og:site_name" content="稍安勿躁zzh">
-<meta property="og:description" content="![](https://i.imgur.com/ETYex2l.png)">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.imgur.com/ETYex2l.png">
+<meta property="og:image" content="https://i.imgur.com/ermwseR.png">
+<meta property="og:image" content="https://i.imgur.com/Sf57Vkh.png">
+<meta property="og:image" content="https://i.imgur.com/xfi1aPk.png">
+<meta property="og:image" content="https://i.imgur.com/YFtotWb.png">
+<meta property="og:image" content="https://i.imgur.com/Z9CuLUD.png">
+<meta property="og:image" content="https://i.imgur.com/glSiuWR.png">
 <meta property="og:updated_time" content="2019-01-03T13:01:15.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OverFeat">
-<meta name="twitter:description" content="![](https://i.imgur.com/ETYex2l.png)">
+<meta name="twitter:image" content="https://i.imgur.com/ETYex2l.png">
 
 
 
@@ -251,9 +256,6 @@
   
 
   
-    
-
-  
 
   
 </nav>
@@ -273,6 +275,9 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
           
           <div id="content" class="content">
             
@@ -387,7 +392,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数"></span>
+                <span title="本文字数">1.2k</span>
               
 
               
@@ -401,7 +406,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长"></span>
+                <span title="阅读时长">1 分钟</span>
               
             </div>
           
@@ -421,45 +426,31 @@
       
 
       
-        ![](https://i.imgur.com/ETYex2l.png)
-<a id="more"></a>
-## 论文的贡献
-- 单个共享网络可以执行多种任务
-- 在网络中使用了多尺度和滑动窗口的方法
-- 通过学习预测目标边界来进行定位
-- 首次解释了ConvNets是如何应用于定位和检测任务的
-
-**抛出问题：**
-> 以ImageNet举例，该数据集的大部分图像中，目标物体都粗略的出现在图像的中央并几乎充斥整个图像，但实际上在现实场景中是复杂的，目标物体出现的位置和大小是不确定的.
-
-**解决问题：**
-1.传统方法
-- 在图像上多个位置都应用CNN提取特征，以滑窗的方式并且在多个尺度上应用；即便这样仍然会导致分类的效果良好，但在定位和目标检测任务上表现不佳(滑窗不一定能把一个物体完全地恰好的包含，有时候只包含目标的一部分)
-
-2.作者的思路
-- 设计训练一个网络，该网络对每一个窗口不仅仅只输出类别的概率分布，还要产生一个相对于窗口的目标定位预测以及bbox信息
-- 求出每个窗口每个类别的位置和置信度信息，简而言之就是剔除误差高的，留下最正确的
-
-## Classification
-![模型结构](https://i.imgur.com/ermwseR.png)
-### Multi-Scale Classification
-&#160; &#160; &#160; &#160;multi-view voting(四角和中心裁剪以及水平翻转)可以提高性能，但缺点是：1、忽略了图像的一部分区域.2、重叠部分的重复计算会浪费计算力.3、单一尺度不能使得网络获得最优的响应.
-作者的思路是使用滑窗的方式应用于每个位置并且使用了多尺度的训练方法，滑窗和枚举类似在每个位置提取特征，但由于CNN的结构优越性，不会造成大量的计算量.而多尺度+multi-view voting会产生更多的views供网络学习，使得网络性能更稳定.
-&#160; &#160; &#160; &#160;在网络下采样过程中，下采样比率越大信息损失的越多，粗糙的分布即过少的输出神经元不能使得网络窗口和目标对象很好的对齐，所以作者采用了一种分辨率增强的方法————对最后一个下采样操作中在不同的offsets上进行，弥补了分辨率的损失.如图所示，两个轴三种位移组合起来就是9种组合，这样操作能够得到更多的特征图而且是位置更多样的特征，这也是offsets起到的作用.
-&#160; &#160; &#160; &#160;这些操作对水平翻转后的图像也要做一遍，最终产生的分类：(1)在每个尺度每个翻转版本获得每个类别的最大值.(2)取平均结果.(3)对类向量均值取top-1或top-2作为结果.
-![](https://i.imgur.com/Sf57Vkh.png)
-结构大致分为三个部分，1-5层特征提取、全连接层起决策作用、offsets池化操作.offsets池化操作的目的是在更多的区域进行分类，这样目标物体才更大概率的被完整的进行分类.
-![](https://i.imgur.com/xfi1aPk.png)
-## Localization
-使用训练过的分类模型，用regression
-network代替分类器层进行训练，预测bbox，然后将二者结合.
-### Regressor Training
-为了能在尽可能多的区域预测，同样使用了offsets方法.
-![](https://i.imgur.com/YFtotWb.png)
-### Combining Predictions
-筛选bbox
-![](https://i.imgur.com/Z9CuLUD.png)
-![](https://i.imgur.com/glSiuWR.png)
+        <p><img src="https://i.imgur.com/ETYex2l.png" alt=""><br><a id="more"></a></p>
+<h2 id="论文的贡献"><a href="#论文的贡献" class="headerlink" title="论文的贡献"></a>论文的贡献</h2><ul>
+<li>单个共享网络可以执行多种任务</li>
+<li>在网络中使用了多尺度和滑动窗口的方法</li>
+<li>通过学习预测目标边界来进行定位</li>
+<li>首次解释了ConvNets是如何应用于定位和检测任务的</li>
+</ul>
+<p><strong>抛出问题：</strong></p>
+<blockquote>
+<p>以ImageNet举例，该数据集的大部分图像中，目标物体都粗略的出现在图像的中央并几乎充斥整个图像，但实际上在现实场景中是复杂的，目标物体出现的位置和大小是不确定的.</p>
+</blockquote>
+<p><strong>解决问题：</strong><br>1.传统方法</p>
+<ul>
+<li>在图像上多个位置都应用CNN提取特征，以滑窗的方式并且在多个尺度上应用；即便这样仍然会导致分类的效果良好，但在定位和目标检测任务上表现不佳(滑窗不一定能把一个物体完全地恰好的包含，有时候只包含目标的一部分)</li>
+</ul>
+<p>2.作者的思路</p>
+<ul>
+<li>设计训练一个网络，该网络对每一个窗口不仅仅只输出类别的概率分布，还要产生一个相对于窗口的目标定位预测以及bbox信息</li>
+<li>求出每个窗口每个类别的位置和置信度信息，简而言之就是剔除误差高的，留下最正确的</li>
+</ul>
+<h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2><p><img src="https://i.imgur.com/ermwseR.png" alt="模型结构"></p>
+<h3 id="Multi-Scale-Classification"><a href="#Multi-Scale-Classification" class="headerlink" title="Multi-Scale Classification"></a>Multi-Scale Classification</h3><p>&#160; &#160; &#160; &#160;multi-view voting(四角和中心裁剪以及水平翻转)可以提高性能，但缺点是：1、忽略了图像的一部分区域.2、重叠部分的重复计算会浪费计算力.3、单一尺度不能使得网络获得最优的响应.<br>作者的思路是使用滑窗的方式应用于每个位置并且使用了多尺度的训练方法，滑窗和枚举类似在每个位置提取特征，但由于CNN的结构优越性，不会造成大量的计算量.而多尺度+multi-view voting会产生更多的views供网络学习，使得网络性能更稳定.<br>&#160; &#160; &#160; &#160;在网络下采样过程中，下采样比率越大信息损失的越多，粗糙的分布即过少的输出神经元不能使得网络窗口和目标对象很好的对齐，所以作者采用了一种分辨率增强的方法————对最后一个下采样操作中在不同的offsets上进行，弥补了分辨率的损失.如图所示，两个轴三种位移组合起来就是9种组合，这样操作能够得到更多的特征图而且是位置更多样的特征，这也是offsets起到的作用.<br>&#160; &#160; &#160; &#160;这些操作对水平翻转后的图像也要做一遍，最终产生的分类：(1)在每个尺度每个翻转版本获得每个类别的最大值.(2)取平均结果.(3)对类向量均值取top-1或top-2作为结果.<br><img src="https://i.imgur.com/Sf57Vkh.png" alt=""><br>结构大致分为三个部分，1-5层特征提取、全连接层起决策作用、offsets池化操作.offsets池化操作的目的是在更多的区域进行分类，这样目标物体才更大概率的被完整的进行分类.<br><img src="https://i.imgur.com/xfi1aPk.png" alt=""></p>
+<h2 id="Localization"><a href="#Localization" class="headerlink" title="Localization"></a>Localization</h2><p>使用训练过的分类模型，用regression<br>network代替分类器层进行训练，预测bbox，然后将二者结合.</p>
+<h3 id="Regressor-Training"><a href="#Regressor-Training" class="headerlink" title="Regressor Training"></a>Regressor Training</h3><p>为了能在尽可能多的区域预测，同样使用了offsets方法.<br><img src="https://i.imgur.com/YFtotWb.png" alt=""></p>
+<h3 id="Combining-Predictions"><a href="#Combining-Predictions" class="headerlink" title="Combining Predictions"></a>Combining Predictions</h3><p>筛选bbox<br><img src="https://i.imgur.com/Z9CuLUD.png" alt=""><br><img src="https://i.imgur.com/glSiuWR.png" alt=""></p>
 
       
     </div>
@@ -555,8 +546,17 @@ network代替分类器层进行训练，预测bbox，然后将二者结合.
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -651,6 +651,23 @@ network代替分类器层进行训练，预测bbox，然后将二者结合.
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文的贡献"><span class="nav-number">1.</span> <span class="nav-text">论文的贡献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Classification"><span class="nav-number">2.</span> <span class="nav-text">Classification</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-Scale-Classification"><span class="nav-number">2.1.</span> <span class="nav-text">Multi-Scale Classification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Localization"><span class="nav-number">3.</span> <span class="nav-text">Localization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regressor-Training"><span class="nav-number">3.1.</span> <span class="nav-text">Regressor Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combining-Predictions"><span class="nav-number">3.2.</span> <span class="nav-text">Combining Predictions</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -676,7 +693,7 @@ network代替分类器层进行训练，预测bbox，然后将二者结合.
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数"></span>
+    <span title="站点总字数">50k</span>
   
 
   
@@ -685,7 +702,7 @@ network代替分类器层进行训练，预测bbox，然后将二者结合.
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长"></span>
+    <span title="站点阅读时长">45 分钟</span>
   
 </div>
 
@@ -698,7 +715,7 @@ network代替分类器层进行训练，预测bbox，然后将二者结合.
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
 
 
 
@@ -786,7 +803,10 @@ network代替分类器层进行训练，预测bbox，然后将二者结合.
   
 
 
-  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
 
 
 
