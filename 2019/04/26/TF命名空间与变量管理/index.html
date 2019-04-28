@@ -100,31 +100,24 @@
 
 
 
-  <meta name="description" content="Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度.             概述目标探测算法有两个主要挑战：1.图像需要进行预处理来提取大量的候选区；2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是相互抵触的！  RC">
-<meta name="keywords" content="目标检测,论文">
+  <meta name="description" content="tf.get_variable是为了方便管理和重用变量，和tf.variable_scope配合使用；tf.name_scope和tf.Variable配合使用用于管理命名空间，使得可视化图层次清晰             代码分析：1234567891011121314151617181920212223242526272829303132333435# -*- cod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FastRCNN">
-<meta property="og:url" content="https://www.ahbzzzh.cn/2019/01/10/FastRCNN/index.html">
+<meta property="og:title" content="TF命名空间与变量管理">
+<meta property="og:url" content="https://www.ahbzzzh.cn/2019/04/26/TF命名空间与变量管理/index.html">
 <meta property="og:site_name" content="稍安勿躁zzh">
-<meta property="og:description" content="Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度.             概述目标探测算法有两个主要挑战：1.图像需要进行预处理来提取大量的候选区；2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是相互抵触的！  RC">
+<meta property="og:description" content="tf.get_variable是为了方便管理和重用变量，和tf.variable_scope配合使用；tf.name_scope和tf.Variable配合使用用于管理命名空间，使得可视化图层次清晰             代码分析：1234567891011121314151617181920212223242526272829303132333435# -*- cod">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.imgur.com/498LEga.png">
-<meta property="og:image" content="https://i.imgur.com/r0nxtk2.png">
-<meta property="og:image" content="https://i.imgur.com/lqB6Zwk.png">
-<meta property="og:image" content="https://i.imgur.com/AwhqZ8v.png">
-<meta property="og:image" content="https://i.imgur.com/F1LAaHy.png">
-<meta property="og:updated_time" content="2019-01-29T01:14:21.566Z">
+<meta property="og:updated_time" content="2019-04-28T07:30:39.215Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FastRCNN">
-<meta name="twitter:description" content="Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度.             概述目标探测算法有两个主要挑战：1.图像需要进行预处理来提取大量的候选区；2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是相互抵触的！  RC">
-<meta name="twitter:image" content="https://i.imgur.com/498LEga.png">
+<meta name="twitter:title" content="TF命名空间与变量管理">
+<meta name="twitter:description" content="tf.get_variable是为了方便管理和重用变量，和tf.variable_scope配合使用；tf.name_scope和tf.Variable配合使用用于管理命名空间，使得可视化图层次清晰             代码分析：1234567891011121314151617181920212223242526272829303132333435# -*- cod">
 
 
 
 
 
 
-  <link rel="canonical" href="https://www.ahbzzzh.cn/2019/01/10/FastRCNN/">
+  <link rel="canonical" href="https://www.ahbzzzh.cn/2019/04/26/TF命名空间与变量管理/">
 
 
 
@@ -134,7 +127,7 @@
   };
 </script>
 
-  <title>FastRCNN | 稍安勿躁zzh</title>
+  <title>TF命名空间与变量管理 | 稍安勿躁zzh</title>
   
 
 
@@ -354,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.ahbzzzh.cn/2019/01/10/FastRCNN/">
+    <link itemprop="mainEntityOfPage" href="https://www.ahbzzzh.cn/2019/04/26/TF命名空间与变量管理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zzh">
@@ -371,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">FastRCNN
+          <h1 class="post-title" itemprop="name headline">TF命名空间与变量管理
 
               
             
@@ -397,7 +390,7 @@
                 
               
 
-              <time title="创建时间：2019-01-10 09:36:21" itemprop="dateCreated datePublished" datetime="2019-01-10T09:36:21+08:00">2019-01-10</time>
+              <time title="创建时间：2019-04-26 11:07:54" itemprop="dateCreated datePublished" datetime="2019-04-26T11:07:54+08:00">2019-04-26</time>
             
 
             
@@ -414,7 +407,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-29 09:14:21" itemprop="dateModified" datetime="2019-01-29T09:14:21+08:00">2019-01-29</time>
+                <time title="修改时间：2019-04-28 15:30:39" itemprop="dateModified" datetime="2019-04-28T15:30:39+08:00">2019-04-28</time>
               
             
           </span>
@@ -431,7 +424,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/目标检测/" itemprop="url" rel="index"><span itemprop="name">目标检测</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Tensorflow/" itemprop="url" rel="index"><span itemprop="name">Tensorflow</span></a></span>
 
                 
                 
@@ -449,8 +442,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/2019/01/10/FastRCNN/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/01/10/FastRCNN/" itemprop="commentCount"></span>
+                <a href="/2019/04/26/TF命名空间与变量管理/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/04/26/TF命名空间与变量管理/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -479,7 +472,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2k</span>
+                <span title="本文字数">1.7k</span>
               
 
               
@@ -513,29 +506,11 @@
       
 
       
-        <div class="note success">
-            <p>Fast R-CNN采用了一些创新来提高训练和测试的速度，同时也提高了检测的准确率.将目标分类和定位联合学习，这种单步训练方式加快了训练速度. </p>
+        <div class="note primary">
+            <p>tf.get_variable是为了方便管理和重用变量，和tf.variable_scope配合使用；tf.name_scope和tf.Variable配合使用用于管理命名空间，使得可视化图层次清晰 </p>
           </div>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>目标探测算法有两个主要挑战：</strong><br>1.图像需要进行预处理来提取大量的候选区；<br>2.这些目标候选区域仅仅是粗糙的定位，需要进行重新调整才能实现更精确的定位。而简化算法、算法效果、算法速度恰恰是相互抵触的！</p>
-<blockquote>
-<p>RCNN、SPPnet都需要多阶段训练微调、占用空间大、训练和测试速度慢等缺点，SPPnet还无法更新spp层之前卷积层的参数，对模型有所限制，而Fast RCNN就解决了以上问题<br><strong>本文的主要贡献</strong><br><img src="https://i.imgur.com/498LEga.png" alt=""></p>
-</blockquote>
-<h2 id="FastR-CNNarchitectureandtraining"><a href="#FastR-CNNarchitectureandtraining" class="headerlink" title="FastR-CNNarchitectureandtraining"></a>FastR-CNNarchitectureandtraining</h2><p>整体结构图<br><img src="https://i.imgur.com/r0nxtk2.png" alt=""><br>&#160; &#160; &#160; &#160;先对整张图片进行特征提取，然后对某个特征图上的候选框特征进行ROI层操作处理成固定长度的向量，然后接入全连接层，最后全连接层输入分为两个分支：一个是类别概率分布(包括背景类别)，另一个对每个类别都产生四个预测值，进行回归调整，对应bbox信息.</p>
-<h3 id="TheRoIpoolinglayer"><a href="#TheRoIpoolinglayer" class="headerlink" title="TheRoIpoolinglayer"></a>TheRoIpoolinglayer</h3><p>&#160; &#160; &#160; &#160;和SPPnet的空间金字塔池化操作一样，只不过这里只有一个level</p>
-<h3 id="较高的训练效率"><a href="#较高的训练效率" class="headerlink" title="较高的训练效率"></a>较高的训练效率</h3><p>&#160; &#160; &#160; &#160;SPPnet有一个缺点是无法更新或者说无法有效的对SPP之前的卷积层参数，分析原因：ROI所对应的感受野都有一个很大的感受野，占据整个图像大部分区域，再者，每个ROI采样自不同的图像样本，这样不能共享计算；而FastRCNN的采用模式为先对图像进行采样，再对这些图像采样ROI，所以每个minibatch都是固定的几张图像，可以共享计算和内存.</p>
-<h3 id="Multi-task-loss"><a href="#Multi-task-loss" class="headerlink" title="Multi-task loss."></a>Multi-task loss.</h3><p>&#160; &#160; &#160; &#160;多任务损失，第一个分支输出为ROI的类别概率分布<script type="math/tex">p=\left ( p_{0},....,p_{K} \right )</script>，另一个输出分支为bbox回归的offsets偏移量<script type="math/tex">t^{k}=\left \{ t_{x}^{k},t_{y}^{k},t_{w}^{k},t_{y}^{k} \right \}</script>，联合损失函数L如下:</p>
-<script type="math/tex; mode=display">L\left ( p,u,t^{u},v \right )=L_{cls}\left ( p,u \right )+\lambda [u\geqslant 1]L_{loc}\left ( t^{u},v \right )</script><p>其中，[]是一个指示函数，用于控制只有目标才进行位置回归，背景类别就不需要进行位置回归。λ是超参数，用于控制均衡.u、v为标签(回归目标v是被处理成0均值和单位方差).回归loss公式为：</p>
-<script type="math/tex; mode=display">L_{loc}\left ( t^{u},v \right )=\underset{i\in \left \{ x,y,w,h \right \} }{\sum }smooth_{L_{1}}\left ( t_{i}^{u}-v_{i} \right )</script><p>进一步：</p>
-<script type="math/tex; mode=display">smooth_{L_{1}}\left ( x \right )=\left\{\begin{matrix}
-&0.5x^{2}  &if|x|< 1 \\ 
-&|x|-0.5  &otherwise 
-\end{matrix}\right.</script><p>&#160; &#160; &#160; &#160;与L2 loss相比L1对异常值更鲁棒是因为，当预测值和真实值相差较大时，可以防止梯度爆炸，画图即可得知<br><img src="https://i.imgur.com/lqB6Zwk.png" alt=""></p>
-<h3 id="RoI池化层的反向传播"><a href="#RoI池化层的反向传播" class="headerlink" title="RoI池化层的反向传播"></a>RoI池化层的反向传播</h3><p>RoI pooling层的反向传播计算公式：<br><img src="https://i.imgur.com/AwhqZ8v.png" alt=""><br>&#160; &#160; &#160; &#160;激活单元会出现重叠像素的情况即ROI重叠，只对最大值进行求偏导，并且偏导是被累积的.还有超参数设置和Scale invariance、Mini-batch sampling等不作详述.</p>
-<h2 id="detection"><a href="#detection" class="headerlink" title="detection"></a>detection</h2><p>&#160; &#160; &#160; &#160;网络与一张图像和一些候选对象区域(selective search)作为输入，对每个ROI产生两个分支输出，还设置了一个概率估计来衡量其为一个类别的置信度，然后进行NMS处理.</p>
-<h3 id="Truncated-SVD-for-faster-detection"><a href="#Truncated-SVD-for-faster-detection" class="headerlink" title="Truncated SVD for faster detection"></a>Truncated SVD for faster detection</h3><p>&#160; &#160; &#160; &#160;对于普通的分类网络，全连接层的计算用时不及卷积层的计算，但是针对object detection，Fast RCNN在ROI pooling后每个region proposal(数量太多)都要经过几个全连接层，使得全连接层计算耗时太长，如下图，所以作者采用SVD来简化全连接层的计算，SVD在图像压缩上有应用.<br><img src="https://i.imgur.com/F1LAaHy.png" alt=""></p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><a href="https://arxiv.org/abs/1504.08083" target="_blank" rel="noopener">Fast R-CNN</a></li>
-</ul>
+<p>代码分析：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time    : 2019/4/25 16:45</span></span><br><span class="line"><span class="comment"># @Author  : ZZH0908</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">sess = tf.InteractiveSession()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">"v_scope"</span>):</span><br><span class="line">    <span class="keyword">with</span> tf.name_scope(<span class="string">"n_scope"</span>):</span><br><span class="line">        a = tf.Variable(tf.constant(<span class="number">1.0</span>, shape=[<span class="number">1</span>]), name=<span class="string">"a"</span>)</span><br><span class="line">        b = tf.get_variable(shape=[<span class="number">2</span>, <span class="number">2</span>], initializer=tf.constant_initializer(<span class="number">2.0</span>), name=<span class="string">"b"</span>)    <span class="comment"># get_variable不受name_scope影响</span></span><br><span class="line">        print(a.name)</span><br><span class="line">        print(b.name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">"v_scope"</span>, reuse=<span class="keyword">True</span>):   <span class="comment"># 可以设置参数对变量进行获取、重用，默认为False</span></span><br><span class="line">    b1 = tf.get_variable(initializer=tf.constant_initializer(<span class="number">3.0</span>), name=<span class="string">"b"</span>)    <span class="comment"># shape可以不传入，但传入必须一致，初始化值可以设置但无效，被获取值覆盖</span></span><br><span class="line">    print(b1 == b)</span><br><span class="line">	print(b1.name)</span><br><span class="line"></span><br><span class="line">sess.run(tf.global_variables_initializer())</span><br><span class="line">print(sess.run(b))</span><br><span class="line">print(<span class="string">"--------------------"</span>)</span><br><span class="line">print(sess.run(b1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">v_scope/n_scope/a:<span class="number">0</span></span><br><span class="line">v_scope/b:<span class="number">0</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line">v_scope/b:<span class="number">0</span></span><br><span class="line">[[<span class="number">2.</span> <span class="number">2.</span>]</span><br><span class="line"> [<span class="number">2.</span> <span class="number">2.</span>]]</span><br><span class="line">--------------------</span><br><span class="line">[[<span class="number">2.</span> <span class="number">2.</span>]</span><br><span class="line"> [<span class="number">2.</span> <span class="number">2.</span>]]</span><br></pre></td></tr></table></figure></p>
+<p>以全名获取变量：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">sess = tf.InteractiveSession()</span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">"v_scope_1"</span>):</span><br><span class="line">    c = tf.get_variable(shape=[<span class="number">3</span>, <span class="number">3</span>], initializer=tf.constant_initializer(<span class="number">7.0</span>), name=<span class="string">"c"</span>)</span><br><span class="line">    print(tf.get_variable_scope().reuse)  <span class="comment"># 默认为False</span></span><br><span class="line">    print(c.name)</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">"v_scope_2"</span>, reuse=<span class="keyword">True</span>):</span><br><span class="line">        print(tf.get_variable_scope().reuse)</span><br><span class="line"></span><br><span class="line">sess.run(tf.global_variables_initializer())</span><br><span class="line"><span class="comment"># 还可以直接通过全名进行变量获取，但前提是reuse一定要为True</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">""</span>, reuse=<span class="keyword">True</span>):</span><br><span class="line">    c1 = tf.get_variable(name=<span class="string">"v_scope_1/c"</span>)</span><br><span class="line">    print(c1 == c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="keyword">False</span></span><br><span class="line">v_scope_1/c:<span class="number">0</span></span><br><span class="line"><span class="keyword">True</span></span><br><span class="line"><span class="keyword">True</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -557,14 +532,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/目标检测/" rel="tag"># 目标检测</a>
-          
-            <a href="/tags/论文/" rel="tag"># 论文</a>
-          
-        </div>
-      
 
       
       
@@ -574,8 +541,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/08/SPPnet/" rel="next" title="SPPnet">
-                <i class="fa fa-chevron-left"></i> SPPnet
+              <a href="/2019/02/01/ML学习/" rel="next" title="ML学习">
+                <i class="fa fa-chevron-left"></i> ML学习
               </a>
             
           </div>
@@ -584,8 +551,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/11/Faster-RCNN/" rel="prev" title="Faster-RCNN">
-                Faster-RCNN <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/28/slim-arg-scope/" rel="prev" title="slim.arg_scope">
+                slim.arg_scope <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -635,17 +602,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -794,23 +752,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FastR-CNNarchitectureandtraining"><span class="nav-number">2.</span> <span class="nav-text">FastR-CNNarchitectureandtraining</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TheRoIpoolinglayer"><span class="nav-number">2.1.</span> <span class="nav-text">TheRoIpoolinglayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#较高的训练效率"><span class="nav-number">2.2.</span> <span class="nav-text">较高的训练效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-task-loss"><span class="nav-number">2.3.</span> <span class="nav-text">Multi-task loss.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RoI池化层的反向传播"><span class="nav-number">2.4.</span> <span class="nav-text">RoI池化层的反向传播</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#detection"><span class="nav-number">3.</span> <span class="nav-text">detection</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Truncated-SVD-for-faster-detection"><span class="nav-number">3.1.</span> <span class="nav-text">Truncated SVD for faster detection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
